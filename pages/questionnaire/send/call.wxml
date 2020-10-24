@@ -1,0 +1,11 @@
+<view class="container f-w" style="height: {{clientHeight}}px;">
+<form catchsubmit="formSubmit">
+  <view class="send-title t-c">你平时怎么称呼Ta ?</view>
+  <view class="name-container">
+    <image mode="widthFix" class="name-container-bg" src="/images/name_bg.jpg"></image>
+    <input class="name-input" name="name" value="{{personName}}"/>
+  </view>
+  <view class="t-c error-message">{{errorMessage}}</view>
+  <button class="finish-btn" formType="submit">继续</button> 
+</form>
+</view>

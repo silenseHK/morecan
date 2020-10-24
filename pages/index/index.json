@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "diy-component": "/components/diy/index",
+    "zan-popup": "/components/popup/index",
+    "diy-message": "/components/message/index"
+  },
+  "navigationStyle": "custom"
+}

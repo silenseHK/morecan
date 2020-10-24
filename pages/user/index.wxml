@@ -1,0 +1,553 @@
+<view class="container" wx:if="{{ userInfo.grade.grade_type <= 10 || userInfo==false}}">
+	<!-- 用户信息 -->
+	<view class="user">
+   <view wx:if="{{ isLogin }}" style="position:relative">
+        <!-- <diy-message style="position:absolute;top:{{isIPX?'40px':'20px'}}"></diy-message> -->
+    </view>
+  <view style="overflow:hidden">
+  		<view class="user-header" style="background-image: url('/images/user-bg.png');">
+      <!--  已登录 -->
+			<view wx:if="{{ isLogin }}" class="user-header-cont">
+				<view class="user-header-avatar">
+					<!-- 微信头像 -->
+					<open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
+				</view>
+				<view class="user-header-right flex-box">
+					<!-- 微信昵称 -->
+					<open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>
+          <view class="dis-flex flex-box">
+            	<!-- 会员等级 -->
+					<view wx:if="{{ userInfo.grade_id > 0 }}" class="user-header-grade dis-flex flex-y-center">
+						<view class="user-grade_icon">
+							<image src="/images/grade_icon.png"></image>
+						</view>
+						<view class="user-grade_name">
+							<text>{{ userInfo.grade.name }}</text>
+						</view>
+					</view>
+          </view>
+				</view>
+			</view>
+      <!-- 未登录 -->
+      <view wx:else class="user-header-cont" catchtap="onLogin">
+        <view class="user-header-avatar">
+          <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
+        </view>
+        <view class="user-header-cont-name no-login-btn" style="font-size:28rpx">点击登录</view>
+      </view>
+		</view>
+  </view>
+
+		<!-- 订单导航栏 -->
+		<view class="order-navbar">
+			<form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+				<button formType="submit" class="btn-normal">
+					<view class="order-navbar-header dis-flex">
+						<text class="f-30 f-w">我的订单</text>
+						<!-- <view class="dis-flex flex-y-center">
+							<text class="f-24 col-6">全部订单</text>
+							<text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+						</view> -->
+					</view>
+				</button>
+			</form>
+			<view class="order-navbar-footer dis-flex m-top10">
+				<view class="order-navbar-item flex-box">
+					<form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-dingdan"></text>
+							<text class="order-navbar__name">全部订单</text>
+						</button>
+					</form>
+				</view>
+				<view class="order-navbar-item flex-box">
+					<form bindsubmit="onTargetOrder" data-type="payment" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-daifukuan2"></text>
+							<text class="order-navbar__name">待付款</text>
+							<text class="order-badge" wx:if="{{orderCount.payment > 0}}">{{orderCount.payment}}</text>
+						</button>
+					</form>
+				</view>
+				<view class="order-navbar-item flex-box">
+					<form bindsubmit="onTargetOrder" data-type="received" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-peisongzhong"></text>
+							<text class="order-navbar__name">待收货</text>
+							<text class="order-badge" wx:if="{{orderCount.received > 0}}">{{orderCount.received}}</text>
+						</button>
+					</form>
+				</view>
+				<view class="order-navbar-item flex-box">
+					<!-- <form bindsubmit="onTargetOrder" data-type="refund" report-submit="true"> -->
+          <form bindsubmit="onTargetOrder" data-type="comment" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-yiwancheng"></text>
+							<!-- <text class="order-navbar__name">退款/售后</text> -->
+              <text class="order-navbar__name">已完成</text>
+							<text class="order-badge" wx:if="{{orderCount.refund > 0}}">{{orderCount.refund}}</text>
+						</button>
+					</form>
+				</view>
+			</view>
+		</view>
+	</view>
+  
+	<!-- 我的钱包 -->
+	<!-- <view class="my-asset agent-block dis-flex b-f">
+		<view class="asset-left flex-box dis-flex flex-x-center">
+			<view class="asset-left_item">
+				<form bindsubmit="onTargetWallet" report-submit="true">
+					<button formType="submit" class="btn-normal">
+						<view class="item-value dis-flex flex-x-center">
+							<text>{{ isLogin ? userInfo.balance : '0.00' }}</text>
+						</view>
+						<view class="item-name dis-flex flex-x-center">
+							<text>账户余额</text>
+						</view>
+					</button>
+				</form>
+			</view>
+			<view class="asset-left_item dis-flex">
+				<form bindsubmit="onTargetPoints" report-submit="true">
+					<button formType="submit" class="btn-normal">
+						<view class="item-value dis-flex flex-x-center">
+							<text>{{ wait_income_money }}</text>
+						</view>
+						<view class="item-name dis-flex flex-x-center">
+							<text>待入账</text>
+						</view>
+					</button>
+				</form>
+        <text bindtap="showHelp" class="iconfont icon-help"></text>
+			</view>
+		</view>
+		<view class="asset-right">
+			<view class="asset-right_item">
+				<form bindsubmit="onTargetWallet" report-submit="true">
+					<button formType="submit" class="btn-normal">
+						<view class="item-icon dis-flex flex-x-center">
+							<text class="iconfont icon-qianbao"></text>
+						</view>
+						<view class="item-name dis-flex flex-x-center">
+							<text>我的钱包</text>
+						</view>
+					</button>
+				</form>
+			</view>
+		</view>
+	</view> -->
+
+  <!-- DIY组件 -->
+  <!-- <view class="agent-block">
+    <view class="block-title f-30">我的服务</view>
+    <diy-component diyItems="{{ items }}"></diy-component>
+  </view> -->
+  <!-- 我的服务 -->
+    <!-- <diy-navBar  itemStyle="{{ items.page.style}}" dataList="{{ items.page.data  }}"></diy-navBar> -->
+	<!-- 菜单列表 -->
+	<view class="menus-list b-f">
+		<form wx:for="{{ menus }}" wx:key="this" bindsubmit="onTargetMenus" data-url="{{item.url}}" report-submit="true">
+			<button formType="submit" class="btn-normal">
+				<view class="menus-item dis-flex">
+					<view class="menus-item__left flex-box dis-flex flex-y-center">
+            <view class="menus-item-icon-bg">
+              <text class="iconfont icon-{{ item.icon }} f-34"></text>
+            </view>
+						<text class="menus-item__name f-30">{{ item.name }}</text>
+					</view>
+					<view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+						<text class="iconfont icon-xiangyoujiantou f-26 col-7"></text>
+					</view>
+				</view>
+			</button>
+		</form>
+    <button wx:if="{{ isLogin }}" formType="submit" catchtap="quitProgram" class="btn-normal">
+				<view class="menus-item dis-flex">
+					<view class="menus-item__left flex-box dis-flex flex-y-center">
+            <view class="menus-item-icon-bg">
+						  <text class="iconfont icon-tuichu f-34"></text>
+            </view>
+						<text class="menus-item__name f-30">退出登录</text>
+					</view>
+					<view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+						<text class="iconfont icon-xiangyoujiantou f-26 col-7"></text>
+					</view>
+				</view>
+			</button>
+	</view>
+
+</view>
+
+<view class="container" style="padding-bottom: 20rpx" wx:if="{{ userInfo.grade.grade_type >= 20 }}">
+	<view class="agent-user" style="padding-bottom:{{isIPX?'60rpx':'40rpx'}};">
+  <!-- <navigator hover-class="none" url="/pages/message/index">
+    <view class="message dis-flex">
+      <text class="iconfont icon-xiaoxi"></text>
+      <text class="message-name">消息</text>
+    </view>
+  </navigator> -->
+    <!-- <view wx:if="{{ isLogin }}">
+        <diy-message style="position:absolute;top:{{isIPX?'40px':'22px'}}"></diy-message>
+    </view> -->
+    <view class="agent-top" style="position:absolute;top:{{isIPX?'40px':'22px'}};z-index:9;">
+         <text class="iconfont icon-logo-white-c logo"></text>
+         <view class="agent-top-title col-f dis-flex flex-y-center flex-x-between">
+            <view class="f-36 f-w">代理中心</view>
+            <!-- 等级信息 -->
+            <view class="agent-grade">
+              <view class="dis-flex">
+                <!-- <view class="agent-grade-name f-32">{{agent.grade.name}}</view> -->
+                <view class="agent-point flex-box">
+                  <view class="agent-point-info dis-flex flex-y-center flex-x-between f-24">
+                    <text>{{agent.grade.next.rate}}</text>
+                    <!-- <view>还差{{agent.grade.next.cha}}分升级{{agent.grade.next.next_grade}}</view> -->
+                    <view>升级至{{agent.grade.next.next_grade}}</view>
+                  </view>
+                  <progress percent="{{grade_process}}" color="#ff6239" stroke-width="4" border-radius="4"/>
+                </view>
+              </view>
+            </view>
+         </view>
+         
+    </view>
+		<view class="agent-user-bg">
+			<view class="agent-bg-icon" style="background-image: url('{{agent.setting.index}}');">
+			</view>
+		</view>
+		<view class="agent-user-info">
+			<!-- <view class="agent-grade">
+				<view class="dis-flex">
+					<view class="agent-grade-name f-32">{{agent.grade.name}}</view>
+					<view class="agent-point flex-box">
+            <view class="agent-point-info dis-flex flex-y-center flex-x-between f-24">
+              <text>{{agent.grade.next.rate}}</text>
+              <view>还差{{agent.grade.next.cha}}分升级{{agent.grade.next.next_grade}}</view>
+            </view>
+						<progress percent="{{grade_process}}" color="#DEB08A" stroke-width="2" border-radius="2"/>
+					</view>
+				</view>
+			</view> -->
+        <view class="agent-detail-info" style="top:{{isIPX?'60rpx':'40rpx'}};">
+          <view class="dis-flex flex-x-between" style="padding:15rpx">
+
+            <!-- 头像信息 -->
+            <view class="agent-avatar dis-flex flex-y-center">
+              <view class="agent-avatar-img">
+                <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
+              </view>
+              <view class="dis-flex flex-dir-column p-r">
+                <view class="agent-wechat-name f-30 onelist-hidden ">
+                  <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>
+                </view>
+                <view class="agent-grade-level dis-flex">
+                  <view class="user-grade_icon">
+                    <image src="/images/grade_icon.png"></image>
+                  </view>
+                  <text class="f-26">{{agent.grade.name}}</text>
+                </view>
+              </view>
+            </view>
+
+          </view>
+            
+
+            <!-- <view class="invita-code f-28">我的邀请码:{{agent.invitation_code}}</view> -->
+            <view class="agent-order dis-flex">
+              <view class="agent-order-item">
+              <navigator hover-class="none" url="/pages/dealer/sale/record">
+                <view class="agent-info-num">
+                  {{agent.sale_num}}
+                </view>
+                <view class="agent-order-name f-24">销售量</view>
+                 </navigator>
+              </view>
+              <view class="agent-order-item">
+                <navigator hover-class="none" url="/pages/dealer/money/sale">
+                <view class="agent-info-num">
+                  {{agent.sale_money}}
+                </view>
+                <view class="agent-order-name f-24">销售额</view>
+                 </navigator>
+              </view>
+              <view class="agent-order-item">
+                <navigator hover-class="none" url="/pages/dealer/team/team">
+                  <view class="agent-info-num">
+                    {{agent.team_member_num}}
+                  </view>
+                  <view class="agent-order-name f-24">团队人数</view>
+                </navigator>
+              </view>
+            </view>
+            <!-- <view class="agent-info-bottom dis-flex flex-y-center f-28">
+              <view class="dis-flex flex-x-center" style="width:50%" bindtap="phoneCall" data-phone="{{agent.invitation_user_info.mobile}}"><view class="iconfont icon-dianhua" style="font-size:38rpx"></view><view class="agent-info-bottom-title">我的推荐人</view></view>
+              
+              <view style="width:50%">
+              <navigator class="dis-flex flex-x-center"  hover-class="none" url="../dealer/qrcode/qrcode">
+              <view class="iconfont icon-qrcode" style="font-size:38rpx"></view>
+              <view class="agent-info-bottom-title">我的二维码</view>
+              </navigator></view>
+            </view> -->
+            
+        </view>
+
+		</view>
+	</view>
+
+
+  <view class="m-top20 p-bottom">
+    		<!-- 代理订单导航栏 -->
+		<view class="agent-block clear">
+			<form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+				<button formType="submit" class="btn-normal">
+					<view class="order-navbar-header dis-flex">
+						<text class="f-30 f-w">我的订单</text>
+						<view class="dis-flex flex-y-center">
+							<text class="f-24 col-6">全部订单</text>
+							<text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+						</view>
+					</view>
+				</button>
+			</form>
+			<view class="order-navbar-footer dis-flex m-top10">
+				<view class="order-navbar-item flex-box">
+					<form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-dingdan"></text>
+							<text class="order-navbar__name">全部订单</text>
+						</button>
+					</form>
+				</view>
+				<view class="order-navbar-item flex-box">
+					<form bindsubmit="onTargetOrder" data-type="payment" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-daifukuan2"></text>
+							<text class="order-navbar__name">待付款</text>
+							<text class="order-badge" wx:if="{{orderCount.payment > 0}}">{{orderCount.payment}}</text>
+						</button>
+					</form>
+				</view>
+				<view class="order-navbar-item flex-box">
+					<form bindsubmit="onTargetOrder" data-type="received" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-peisongzhong"></text>
+							<text class="order-navbar__name">待收货</text>
+							<text class="order-badge" wx:if="{{orderCount.received > 0}}">{{orderCount.received}}</text>
+						</button>
+					</form>
+				</view>
+				<view class="order-navbar-item flex-box">
+					<!-- <form bindsubmit="onTargetOrder" data-type="refund" report-submit="true"> -->
+          <form bindsubmit="onTargetOrder" data-type="comment" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<text class="order-navbar__icon iconfont icon-yiwancheng"></text>
+							<!-- <text class="order-navbar__name">退款/售后</text> -->
+              <text class="order-navbar__name">已完成</text>
+							<text class="order-badge" wx:if="{{orderCount.refund > 0}}">{{orderCount.refund}}</text>
+						</button>
+					</form>
+				</view>
+			</view>
+		</view>
+
+    <view class="agent-block clear">
+      <view class="block-title f-30 dis-flex flex-x-between flex-y-center ">
+        <view>账户管理</view>
+        <form bindsubmit="onTargetWallet" report-submit="true">
+					<button formType="submit" class="btn-normal">
+        <view class="agent-money-more f-24">
+        查看更多<text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+        </view>
+        </button>
+        </form>
+      </view>
+      <view class="agent-widget-operat">
+        <!-- 账户余额 -->
+        <view class="my-asset dis-flex">
+          <view class="asset-left flex-box dis-flex flex-x-center">
+            <view class="asset-left_item">
+              <form bindsubmit="onTargetWallet" report-submit="true">
+                <button formType="submit" class="btn-normal">
+                  <view class="item-name dis-flex">
+                    <text>账户余额</text>
+                  </view>
+                  <view class="item-value dis-flex">
+                    <text>{{ agent.balance }}</text>
+                  </view>
+                </button>
+              </form>
+            </view>
+            <!-- <view class="asset-left_item">
+              <form bindsubmit="onTargetPoints" report-submit="true">
+                <button formType="submit" class="btn-normal">
+                  <view class="item-value dis-flex flex-x-center">
+                    <text>+168.00</text>
+                  </view>
+                  <view class="item-name dis-flex flex-x-center">
+                    <text>昨日入账</text>
+                  </view>
+                </button>
+              </form>
+            </view> -->
+            <view class="asset-left_item dis-flex">
+              <form bindsubmit="onTargetPoints" report-submit="true">
+                <button formType="submit" class="btn-normal">
+                  <view class="item-name dis-flex flex-y-center">
+                    <text>待确认</text>
+                  </view>
+                  <view class="item-value dis-flex">
+                    <text>{{ agent.wait_income_money }}</text>
+                  </view>
+                </button>
+              </form>
+               <text bindtap="showHelp" class="iconfont icon-help"></text>
+            </view>
+          </view>
+          
+          <view class="asset-right">
+            <view class="asset-right_item">
+              <form bindsubmit="onTargetWallet" report-submit="true">
+                <button formType="submit" class="btn-normal">
+                  <view class="item-icon dis-flex flex-x-center">
+                    <text class="iconfont icon-qianbao"></text>
+                  </view>
+                  <view class="item-name dis-flex flex-x-center">
+                    <text>我的钱包</text>
+                  </view>
+                </button>
+              </form>
+            </view>
+          </view>
+          
+        </view>
+      </view>
+    </view>
+
+    <!-- DIY组件 -->
+  <!-- <view class="agent-block clear">
+    <view class="block-title f-30">我的服务</view>
+    <diy-component diyItems="{{ items }}"></diy-component>
+  </view> -->
+
+    <view class="agent-block clear">
+      <view class="block-title f-30">管理货物</view>
+      <view class="agent-widget-operat">
+          <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/dealer/stock/list">
+              <view class="item-icon">
+                <!-- <text class="iconfont icon-xiongmao agent-item-icon-bg"></text> -->
+                <view class="agent-icon-bg">
+                  <text class="iconfont icon-kucun agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">库存管理</view>
+            </navigator>
+          </view>
+          <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/dealer/sale/record">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                  <text class="iconfont icon-record agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">销售记录</view>
+            </navigator>
+          </view>
+          <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/dealer/stock/record">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                <text class="iconfont icon-tihuojilu agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">提货发货记录</view>
+            </navigator>
+          </view>
+      </view>
+    </view>
+
+    <view class="agent-block clear">
+      <view class="block-title f-30">团队管理</view>
+      <view class="agent-widget-operat">
+          <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/dealer/team/team">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                  <text class="iconfont icon-tuandui agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">所有成员</view>
+              <!-- <view class="icon-item-des">团队所有成员</view> -->
+            </navigator>
+          </view>
+
+          <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/user/team/team">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                  <text class="iconfont icon-tuanduiguanli agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">我的邀请</view>
+              <!-- <view class="icon-item-des">直推下级成员</view> -->
+            </navigator>
+          </view>
+
+          <!-- <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/dealer/health/index">
+              <view class="item-icon">
+                <text class="iconfont icon-xiongmao agent-item-icon-bg"></text>
+                <text class="iconfont icon-xidate agent-item-icon"></text>
+              </view>
+              <view class="item-text">团队健康问卷</view>
+            </navigator>
+          </view> -->
+      </view>
+    </view>
+
+    <view class="agent-block clear">
+      <view class="block-title f-30">账号管理</view>
+      <view class="agent-widget-operat">
+          <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/address/index">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                  <text class="iconfont icon-map agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">收货地址</view>
+            </navigator>
+          </view>
+          <view class="agent-operat-item">
+            <navigator hover-class="none" url="/pages/dealer/bank/index">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                <text class="iconfont icon-yinhangka agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">银行卡管理</view>
+            </navigator>
+          </view>
+          <view class="agent-operat-item" bindtap="toMessageIndex">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                  <text class="iconfont icon-xiaoxi agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">消息管理</view>
+          </view>
+          <view wx:if="{{ isLogin }}" class="agent-operat-item" bindtap="quitProgram">
+              <view class="item-icon">
+                <view class="agent-icon-bg">
+                  <text class="iconfont icon-tuichu agent-item-icon"></text>
+                </view>
+              </view>
+              <view class="item-text">退出登录</view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- 待入账说明 -->
+<zan-dialog id="zan-base-dialog"></zan-dialog>

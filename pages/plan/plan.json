@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "推荐套餐",
+  "navigationBarBackgroundColor": "#dbdddf",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "diy-component": "/components/diy/index",
+    "zan-popup": "/components/popup/index",
+    "diy-message": "/components/message/index"
+  }
+}

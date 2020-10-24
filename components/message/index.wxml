@@ -1,0 +1,7 @@
+    <view bindtap="toMessageIndex" class="message dis-flex">
+      <view style="position:relative">
+        <text class="iconfont icon-xiaoxi"></text>
+        <view wx:if="{{isMessage}}" class="message-active"></view>
+      </view>
+       <!-- <text class="message-name">消息</text> -->
+    </view>

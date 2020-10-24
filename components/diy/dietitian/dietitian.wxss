@@ -1,0 +1,131 @@
+/* banner轮播 */
+
+.diy-banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+/* 顶部置灰 */
+
+.diy-banner .linear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.4rem;
+  background: linear-gradient(#111, transparent);
+  opacity: 0.6;
+  z-index: 9;
+}
+.swiper-box{
+  background: none;
+  position: relative;
+  z-index: 2;
+  /* box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.3); */
+}
+
+.swiper-item-content{
+  background: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:2rpx solid #333;
+  padding: 60rpx 0;
+  border-radius: 20rpx;
+  flex-direction: column;
+}
+.swiper-item-content image{
+  width: 280rpx;
+  height: 280rpx;
+}
+.swiper-item-content::after{
+  content: '';
+  position: absolute;
+  height: 90%;
+  width: 100%;
+  padding: 0 10rpx;
+  background: #dbdbdb;
+  border-radius: 20rpx;
+  z-index: -1;
+}
+.swiper-impression-content{
+  font-size: 28rpx;
+  color: #efc192;
+  height: 150rpx;
+}
+.swiper-impression-user{
+  font-size: 24rpx;
+  color: #333;
+}
+
+
+
+/* banner组件按钮 */
+
+.swiper-box .wx-swiper-dot {
+  height: 20rpx;
+  width: 20rpx;
+  background: #fff;
+}
+
+.swiper-box.dot-rectangle .wx-swiper-dot {
+  width: 30rpx;
+  border-radius: unset;
+}
+
+.swiper-box.dot-square .wx-swiper-dot {
+  border-radius: unset;
+}
+
+.dietitian-name{
+  margin-top: 40rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.dietitian-title{
+  font-size: 28rpx;
+  margin-top: 6rpx;
+}
+.dietitian-desc{
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+}
+.dietitian-desc-item{
+  text-align: center;
+  color: #efc192;
+  font-size: 28rpx;
+  position: relative;
+  display: flex;
+}
+.dietitian-desc-item::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6rpx;
+  border-radius: 6px;
+  background: #dbdbdb;
+}
+
+.dots{  
+  display: flex;
+  justify-content: center;
+  padding-bottom: 80rpx;
+}  
+/*未选中时的小圆点样式 */
+.dot{  
+  height: 16rpx;
+  width: 16rpx;
+  margin-right: 10rpx;
+  border-radius: 16rpx;
+  background-color: #f0f0f0;
+}  
+/*选中以后的小圆点样式  */
+.active{  
+  background-color: #efc192;
+} 

@@ -1,0 +1,149 @@
+
+.stock-record-item{
+  width: 94%;
+  margin: 3%;
+  background: #fff;
+  border-radius: 15rpx;
+}
+.order-box {
+  padding: 0 15px;
+}
+
+.order-header {
+  /* border-bottom: 1rpx solid #e4e4e4; */
+  padding-top: 20rpx;
+}
+
+.order-header .title {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.order-header .cont {
+  /* display: block; */
+  /* font-size: 24rpx; */
+  color: #fd4a5f;
+}
+
+/* .order-cont {
+  padding: 15rpx 0;
+  justify-content: space-between;
+} */
+
+.order-cont .order-num text, .order-cont .order-time text {
+  color: #777;
+  font-size: 24rpx;
+}
+
+.order-shop {
+  padding: 16rpx 0 16rpx 0;
+}
+
+.order-shop-left, .order-shop-left image {
+  width: 160rpx;
+  height: 160rpx;
+  /* border: 1rpx solid #e4e4e4; */
+  margin-right: 15rpx;
+  display: inline-block;
+  background: #fff;
+  border-radius: 15rpx;
+}
+
+.order-shop .num {
+  float: right;
+}
+
+.order-btn {
+  padding: 5rpx 0 18rpx 0;
+}
+
+.order-btn .order-left {
+  flex: 3;
+  color: #777;
+}
+
+.order-btn .order-left text, .order-btn .order-left .text {
+  font-size: 29rpx;
+}
+
+.order-btn .order-left .text {
+  color: #888;
+}
+
+.order-btn .order-right {
+  flex: 3;
+  color: #777;
+}
+
+.order-btn .order-right .btn-group {
+  justify-content: flex-end;
+}
+
+.order-list-box .left {
+  flex: 4;
+  overflow: hidden;
+  position: relative;
+}
+
+.order-list-box .right {
+  flex: 1;
+}
+
+.goods-number {
+  font-size: 28rpx;
+  color: #777;
+}
+
+.btn-default {
+  border-radius: 13px;
+  border: 1rpx solid #ccc;
+  padding: 6rpx 20rpx;
+  font-size: 28rpx;
+  color: #6B6B6B;
+  float: right;
+}
+
+.btn-main {
+  border-radius: 13px;
+  border: 1rpx solid #ff6239;
+  padding: 6rpx 20rpx;
+  font-size: 28rpx;
+  color: #ff6239;
+  margin-left: 10rpx;
+  float: right;
+}
+
+.user-orderJtou {
+  font-size: 24rpx;
+}
+
+.order-img_list {
+  padding-top: 10rpx;
+  /* background: #fff; */
+  /* border-top: 1rpx solid #f1f1f1; */
+  /* border-bottom: 1rpx solid #f1f1f1; */
+}
+
+.order-right-name {
+  position: absolute;
+  top: 50%;
+  left: 180rpx;
+  font-size: 30rpx;
+  color: #555;
+  width: 100%;
+  margin-top: -46rpx;
+  line-height: 1.6;
+}
+.stock-sku{
+  color: #7E7E7E;
+  padding-top: 10rpx;
+}
+.go-supply-stock{
+  color: #ff6239;
+  border: 1rpx solid #ff6239;
+  padding: 10rpx 80rpx;
+  border-radius: 50rpx;
+  margin-bottom: 50rpx;
+  margin-top: 100rpx;
+}
+

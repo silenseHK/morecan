@@ -1,0 +1,204 @@
+<view class="container p-bottom">
+
+  <!-- 顶部选项卡 -->
+  <view class="swiper-tab dis-flex flex-y-center flex-x-around">
+    <view wx:for="{{ DeliveryTypeEnum }}" wx:key="this" class="swiper-tab-item {{ curDelivery == item.value ? 'on' : '' }}" data-current="{{ item.value }}" catchtap="onSwichDelivery">
+      {{ item.name }}
+    </view>
+  </view>
+
+  <!-- 快递配送：配送地址 -->
+  <view wx:if="{{ curDelivery == DeliveryTypeEnum.EXPRESS.value }}" catchtap="onSelectAddress" class="flow-delivery">
+    <view class="flow-delivery__detail dis-flex flex-y-center">
+      <view class="detail-location dis-flex">
+        <text class="iconfont icon-dingwei"></text>
+      </view>
+      <view class="detail-content flex-box">
+        <block wx:if="{{ address.address_id }}">
+          <view class="detail-content__title dis-flex">
+            <text class="f-30">{{ address.name }}</text>
+            <text class="detail-content__title-phone f-28">{{ address.phone }}</text>
+          </view>
+          <view class="detail-content__describe">
+            <text class="col-7">{{address.region.province}} {{address.region.city}} {{address.region.region}} {{address.detail}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="detail-content__describe dis-flex">
+            <text class="col-6">请选择配送地址</text>
+          </view>
+        </block>
+      </view>
+      <view class="detail-arrow dis-flex">
+        <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 公司自提：自提门店 -->
+  <block wx:if="{{ curDelivery == DeliveryTypeEnum.EXTRACT.value }}">
+    <view catchtap="onSelectExtractPoint" class="flow-delivery">
+      <view class="flow-delivery__detail dis-flex flex-y-center">
+        <view class="detail-location dis-flex">
+          <text class="iconfont icon-dingwei"></text>
+        </view>
+        <view class="detail-content flex-box">
+          <block wx:if="{{ extract_shop.shop_id }}">
+            <view class="detail-content__title dis-flex">
+              <text class="f-30">{{ extract_shop.shop_name }}</text>
+            </view>
+            <view class="detail-content__describe">
+              <text class="col-7">{{extract_shop.region.province}} {{extract_shop.region.city}} {{extract_shop.region.region}} {{extract_shop.address}}</text>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="detail-content__describe dis-flex">
+              <text class="col-6">请选择自提点</text>
+            </view>
+          </block>
+        </view>
+        <view class="detail-arrow dis-flex">
+          <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text>
+        </view>
+      </view>
+    </view>
+    <!-- 自提联系方式 -->
+    <view class="flow-extract-contact m-top20 b-f">
+      <view class="contact-item dis-flex">
+        <view class="item_label dis-flex flex-x-end flex-y-center">
+          <text>联系人：</text>
+        </view>
+        <view class="item_ipt flex-box dis-flex flex-y-center">
+          <input placeholder="请填写联系人姓名" bindinput="onInputLinkman" value="{{ linkman }}"></input>
+        </view>
+      </view>
+      <view class="contact-item dis-flex">
+        <view class="item_label dis-flex flex-x-end flex-y-center">
+          <text>联系电话：</text>
+        </view>
+        <view class="item_ipt flex-box dis-flex flex-y-center">
+          <input placeholder="请填写联系电话" bindinput="onInputPhone" value="{{ phone }}"></input>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 商品列表 -->
+  <view class="m-top20">
+    <view class="checkout_list">
+      <form bindsubmit="onTargetGoods" data-id="{{ goods_data.goods_id }}" report-submit="true">
+        <button formType="submit" class="btn-normal">
+          <view class="flow-shopList dis-flex" data-index="{{ index }}">
+            <!-- 商品图片 -->
+            <view class="flow-list-left">
+              <image mode="scaleToFill" src="{{ goods_data.image.file_path }}"></image>
+            </view>
+            <view class="flow-list-right flex-box">
+              <!-- 商品名称 -->
+              <text class="f-30 col-3 twolist-hidden">{{ goods_data.goods.goods_name }}</text>
+              <!-- 商品sku信息 -->
+              <text class="f-24 col-7" wx:if="{{goods_data.sku_list[0]}}">{{ goods_data.sku_list[0].spec_name }}:{{ goods_data.sku_list[0].spec_value }}</text>
+            </view>
+          </view>
+        </button>
+      </form>
+    </view>
+
+    <view class="flow-num-box b-f padding-box">
+      <text>当前库存：</text>
+      <text class="flow-money col-m">{{ stock }}</text>
+    </view>
+
+  </view>
+
+  <!-- 商品金额 -->
+  <view class="flow-all-money b-f m-top20">
+    <view class="flow-all-list dis-flex">
+      <text class="flex-five">请输入提货数量：</text>
+      <view class="flex-five t-r">
+        <!-- <text class="col-m">￥{{ order_total_price }}</text> -->
+          <input placeholder="请输入提货数量" bindinput="onInputStockNum" type="number" value="{{ stocknum }}"></input>
+      </view>
+    </view>
+    <!-- 配送费用 -->
+    <view wx:if="{{ curDelivery == DeliveryTypeEnum.EXPRESS.value }}" class="dis-flex flow-all-list">
+      <text class="flex-five">配送费用：</text>
+      <view class="flex-five t-r">
+        <view wx:if="{{address.address_id}}">
+          <view class="col-m" wx:if="{{ intra_region }}">
+          <view wx:if="{{ stocknum }}">￥{{ tranPay }}</view>
+          <view wx:else style="color:#A2A2A2">请输入提货数量计算运费</view>
+          </view>
+          <text wx:else>不在配送范围</text>
+        </view>
+        <view wx:else>
+          <text class="col-7">请选择配送地址</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付方式 -->
+  <view class="pay-method flow-all-money b-f m-top20" wx:if="{{ curDelivery == DeliveryTypeEnum.EXPRESS.value }}">
+    <view class="flow-all-list dis-flex">
+      <text class="flex-five">支付方式</text>
+    </view>
+    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" report-submit="true">
+      <button formType="submit" class="btn-normal">
+        <view class="pay-item dis-flex flex-x-between">
+          <view class="item-left dis-flex flex-y-center">
+            <view class="item-left_icon wechat">
+              <text class="iconfont icon-weixinzhifu"></text>
+            </view>
+            <view class="item-left_text">
+              <text>{{ PayTypeEnum.WECHAT.name }}</text>
+            </view>
+          </view>
+          <view class="item-right col-m" wx:if="{{ curPayType == PayTypeEnum.WECHAT.value }}">
+            <text class="iconfont icon-duihao"></text>
+          </view>
+        </view>
+      </button>
+    </form>
+    <!-- <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" report-submit="true">
+      <button formType="submit" class="btn-normal">
+        <view class="pay-item dis-flex flex-x-between">
+          <view class="item-left dis-flex flex-y-center">
+            <view class="item-left_icon balance">
+              <text class="iconfont icon-qiandai"></text>
+            </view>
+            <view class="item-left_text">
+              <text>{{ PayTypeEnum.BALANCE.name }}</text>
+            </view>
+          </view>
+          <view class="item-right col-m" wx:if="{{ curPayType == PayTypeEnum.BALANCE.value }}">
+            <text class="iconfont icon-duihao"></text>
+          </view>
+        </view>
+      </button>
+    </form> -->
+  </view>
+
+  <!-- 买家留言 -->
+  <view class="flow-all-money b-f m-top20">
+    <view class="ipt-wrapper dis-flex flow-all-list">
+      <input bindinput="bindRemark" placeholder="选填：提货发货备注（50字以内）" value="{{remark}}"></input>
+    </view>
+  </view>
+
+  <!-- 提交订单 -->
+  <view class="flow-fixed-footer b-f m-top10">
+    <view class="dis-flex chackout-box flex-y-center">
+      <view class="chackout-left pl-12">邮费：
+        <text class="col-m">￥{{ curDelivery == DeliveryTypeEnum.EXPRESS.value?tranPay:'0' }}</text>
+      </view>
+      <view catchtap="onSubmitOrder" class="chackout-right">
+        <text class="flow-btn f-32">提交订单</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 快捷导航 -->
+<!-- <shortcut></shortcut> -->

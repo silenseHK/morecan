@@ -1,0 +1,110 @@
+page{
+  background: #fff;
+}
+.bindPhoneTitle {
+  width: 84%;
+  padding: 100rpx 9% 60rpx;
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  text-align: center;
+}
+.bindPhoneTitle image{
+  width: 30%;
+  border-radius: 50%;
+}
+.formItemPhone {
+  width: 84%;
+  margin: 0 8%;
+  padding: 20rpx 0;
+  border: 1px solid #f3f3f4;
+  margin-bottom: 50rpx;
+  position: relative;
+  border-radius: 50rpx;
+}
+
+.formItemPhone label {
+  display: inline-block;
+  width: 20%;
+  vertical-align: middle;
+  margin-left: 6%;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #333;
+}
+
+.formItemPhone input {
+  display: inline-block;
+  width: 65%;
+  vertical-align: middle;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.inputClass {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(189, 199, 210, 1);
+}
+
+
+
+.codeBtn {
+  position: absolute;
+  right: 20rpx;
+  bottom: 16rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #ff6239;
+  background: transparent;
+  z-index: 1000;
+  /* border: 1rpx solid #ff6239; */
+  line-height: 2;
+  padding: 0 16rpx;
+  border-radius: 28rpx;
+}
+
+.codeBtn::after {
+  border: none;
+  outline: medium;
+  border-radius: 0;
+}
+
+.code_toast {
+  position: absolute;
+  right: 15rpx;
+  bottom: 20rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(189, 199, 210, 1);
+}
+
+.formBtn {
+  width: 84%;
+  height: 88rpx;
+  background: #f3f3f4!important;
+  border-radius: 44rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: #ffefe9;
+  border: none;
+  outline: medium;
+  margin-top: 100rpx;
+}
+
+.formBtn::after {
+  border: none;
+  outline: medium;
+  border-radius: 44rpx;
+}
+
+.formBtn.active {
+  background: #ff6239!important;
+  color: #fff;
+}

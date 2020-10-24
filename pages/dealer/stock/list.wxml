@@ -1,0 +1,72 @@
+<view class="container">
+
+  <!-- 库存列表 -->
+  <view class="goods-detail-box">
+    <!-- <scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 750rpx;"> -->
+      <!-- <view class="wrapper" wx:if="{{list.data.length > 0}}"> -->
+      <view class="wrapper">
+        <!-- <view wx:if="{{list.length}}"> -->
+        <view class="stock-record-item m-top20"  wx:for="{{list}}" wx:key="index">
+          <view class="order-box order-img_list">
+            <view class="order-shop">
+              <view class="order-list-box dis-flex flex-dir-column">
+                <view class="left">
+                  <view class="dis-flex">
+                    <view class="order-shop-left">
+                      <image src="{{item.spec.image.file_path}}"></image>
+                    </view>
+                    <view class="flex-dir-column ">
+                      <view class="f-29 f-w">{{item.goods.goods_name}}</view>
+                      <view wx:for="{{item.spec.sku_list}}">
+                        <view class="stock-sku f-24">{{item.spec_name}}:{{item.spec_value}}</view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view class="right dis-flex flex-x-end flex-y-center">
+                  <text class="goods-number">现库存:</text>
+                  <view class="f-28">{{item.stock}}盒</view>
+                  <!-- <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text> -->
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="order-box">
+            <view class="order-btn dis-flex">
+              
+              <!-- <view class="order-left f-24">
+                订单时间：2020-3-28
+              </view> -->
+              <view class="order-right">
+                 <view class="btn-group dis-flex">
+                  <!-- 补充库存 -->
+                  <view>
+                    <view catchtap="supplyGoods" class="btn-default" data-id="{{item.goods_id}}" data-spec-id="{{item.spec.spec_sku_id}}">补充库存</view>
+                  </view>
+                  <!-- 发货提货 -->
+                  <view>
+                    <view catchtap="sendGoods" class="btn-main" data-id="{{item.goods_id}}"
+                    data-sku-id="{{item.goods_sku_id}}">发货提货</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{ list.length<1 }}" class="no-more f-30">
+      <view class="dis-flex flex-y-center flex-x-center flex-dir-column">
+              <view class="go-supply-stock" catchtap="supplyGoods" data-id="list">去进货</view>
+        没有商品库存哦
+      </view>
+      </view>
+      <!-- <view wx:if="{{ !isLoading && !list.data.length }}">
+        <view class="yoshop-notcont">
+          <text class="iconfont icon-wushuju"></text>
+          <text class="cont">亲，您还没有订单信息哦！</text>
+        </view>
+      </view> -->
+    <!-- </scroll-view> -->
+  </view>
+
+</view>

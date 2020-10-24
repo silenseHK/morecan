@@ -1,0 +1,120 @@
+
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  box-shadow: 0 2px 15px 0 rgba(144, 52, 52, 0.1);
+}
+
+.swiper-tab .swiper-tab-item {
+  width: 50%;
+  height: 100%;
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 2px solid #fff;
+}
+
+.swiper-tab .on {
+  color: #DCAA81;
+  border-bottom: 2px solid #DCAA81;
+}
+
+.product-list{
+  /* width: calc(100vw - 40rpx); */
+  margin: 20rpx;
+  padding-top: 60rpx;
+}
+.product-list .product-item {
+  position: relative;
+  width: calc(100vw - 40rpx);
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  z-index: 999;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+.slide-product-list .slide-product-item {
+  position: relative;
+  width: calc(100vw - 40rpx);
+  box-sizing: border-box;
+  background: #fff;
+  z-index: 999;
+}
+
+.product-list .product-item movable-area {
+  height: 240rpx;
+  width: calc(100vw - 160rpx);
+}
+
+.product-list .product-item movable-view {
+  height: 240rpx;
+  width: calc(100vw - 40rpx);
+  background: #fff;
+  z-index: 999;
+}
+
+.product-list .product-item .delete-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0; 
+  width: 120rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  line-height: 240rpx;
+  z-index: 1;
+  background: #E66671;
+  text-align: center;
+}
+
+.product-list .product-item-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* padding: 8rpx 0 20rpx 20rpx; */
+  box-sizing: border-box;
+}
+
+.product-list .product-item-wrap .product-movable-item {
+  flex: 1;
+  margin: 20rpx 40rpx;
+  border-radius: 10rpx;
+}
+
+.product-list .product-item-wrap .product-movable-item-name {
+  font-size: 36rpx;
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  margin-top: 46rpx;
+  width: 50%;
+}
+
+.product-list .product-item-wrap .product-movable-item-code {
+  margin-top: 20rpx;
+}
+
+.no-order-icon{
+  font-size: 80rpx;
+}
+.toLoginBtn{
+  color: #DCAA81;
+  border: 1rpx solid #DCAA81;
+  border-radius: 26rpx;
+  padding: 6rpx 26rpx;
+}
+

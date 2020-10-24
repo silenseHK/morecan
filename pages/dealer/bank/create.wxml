@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="common-header-xian"></view>
+  <!-- 表单 -->
+  <form bindsubmit="saveData" report-submit="true">
+    <view class="address-cont-title b-f">
+      <view class="list address-box dis-flex">
+        <view class="left-name">
+          <text class="f-30">开户人姓名</text>
+        </view>
+        <view class="right-cont flex-box">
+          <input name="card_account" placeholder="请输入开户人姓名" value="{{card_account}}"></input>
+        </view>
+      </view>
+      <view class="list address-box dis-flex">
+        <view class="left-name">
+          <text class="f-30">银行卡号</text>
+        </view>
+        <view class="right-cont flex-box">
+          <input name="card_number" placeholder="请输入银行卡号" type="number" value="{{card_number}}"></input>
+        </view>
+      </view>
+    </view>
+    
+    <view class="address-cont-title b-f">
+      <view class="dis-flex list address-box m-top20">
+        <view class="left-name">
+          <text class="f-30">开户银行</text>
+        </view>
+        <view class="address-cont-box flex-box">
+          <picker mode="selector" range="{{bankCardList}}" value='{{index}}' bindchange="bindBankChange" range-key="bank_name">
+            <text wx:if="{{bankCardList}}" class="f-30">{{bank_id?bankCardList[index].bank_name:"请选择开户银行"}}</text>
+          </picker>
+        </view>
+      </view>
+      <view class="dis-flex list address-box">
+        <view class="left-name">
+          <text class="f-30">开户银行地址</text>
+        </view>
+        <view class="right-cont flex-box">
+          <input name="bank_address" placeholder="请输入开户银行地址" type="text" value="{{bank_address}}"></input>
+        </view>
+      </view>
+      <view class="dis-flex list address-box">
+        <view class="left-name">
+          <text class="f-30">默认银行卡</text>
+        </view>
+        <view class="right-cont flex-box">
+            <view class="fr">
+                <switch checked="{{defaultBank}}" color="#ff6239" bindchange="switchChange"/>
+            </view>
+        </view>
+      </view>
+    </view>
+    <view class="padding-box m-top20 profile-btn">
+      <button formType="submit" disabled="{{disabled}}">保存</button>
+    </view>
+  </form>
+</view>
+
+<!-- 快捷导航 -->
+<shortcut></shortcut>

@@ -1,0 +1,38 @@
+<view style="padding: 0 30rpx" wx:if="{{ !isLoading }}">
+  <view class="item-container">
+  <view class="dis-flex">
+    <view>
+      <text style="font-size:140rpx" class="iconfont icon-daili"></text>
+    </view>
+    <view class="common-title" style="margin-left: 10rpx">
+      <view>{{username}}</view>
+      <view class="tag-words m-top10">个人营养食谱</view>
+    </view>
+  </view>
+     <view class="desc-content">
+        <text>根据您填写的报告，以下是168太空素食为您定制的健康食谱，逐步改善饮食和生活习惯。</text>
+    </view>
+    <view class="common-title m-top30">个人BMI建议</view>
+    <view class="desc-content m-top20">
+        <text>您的身体质量指数BMI= {{bmi}}kg/m2,
+根据您的身体状况，为您建议以下健康食谱建议：</text>
+    </view>
+  </view>
+
+  <view class="item-container" wx:for="{{food_list}}">
+    <view class="desc-content">
+
+    <image catchtap="onPreviewImages" data-index="{{index}}" style="width:100%" class="slide-image" mode="widthFix" src="{{item.file_path}}"></image>
+
+    </view>
+  </view>
+  <view class="f-28 col-3 f-w t-c m-top20">
+  <view>营养师推荐<span class="tag-words">3个月</span>后</view>
+  <view>欢迎您再次填写该调查问卷，并重新分析健康状况</view>
+  </view>
+  
+          <!-- 下单按钮 -->
+        <view class="bottom-buy dis-flex flex-x-center">
+          <view catchtap="onConfirmSubmit" class="f-w bottom-buy-btn">去下单</view>
+        </view>
+</view>

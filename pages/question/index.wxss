@@ -1,0 +1,131 @@
+/* 顶部选项卡 */
+.question-header{
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  flex-direction: column;
+  box-shadow: 0 2px 15px 0 rgba(144, 52, 52, 0.1);
+}
+.header {
+  /* display: flex;
+  position: fixed;
+  top: 0; */
+  width: 100%;
+  color: #333;
+  font-size: 26rpx;
+  background: #fff;
+  padding-bottom: 6rpx;
+  z-index: 100;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.header .cs {
+  display: inline-block;
+  text-align: center;
+  min-width: 20%;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  color: #7E7E7E;
+  background: #fff;
+}
+
+.header .cs text {
+  display: block;
+  height: 100%;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.header .cs.active text {
+  color: #DCAA81;
+  border-bottom: 2rpx solid #DCAA81;
+}
+/* 搜索框 */
+
+.diy-search {
+  background: #fff;
+  padding: 20rpx 20rpx;
+  font-size: 26rpx;
+}
+
+.diy-search .inner {
+  height: 60rpx;
+  background: #f1f1f2;
+  overflow: hidden;
+}
+
+
+.diy-search .inner.round {
+  border-radius: 60rpx;
+}
+
+.diy-search .inner .search-input {
+  height: 60rpx;
+  width: 92%;
+  line-height: 60rpx;
+  color: #999;
+  padding: 0 20rpx;
+}
+
+.bg-gold{
+  background: #DCAA81!important;
+}
+.question-container{
+  margin-top: 165rpx;
+}
+.message-item{
+  border-radius: 15rpx;
+  margin: 0 3%;
+  margin-top: 3%;
+  padding: 20rpx;
+  /* box-shadow: 0 4px 12px 0 rgba(220, 170, 129, 0.2); */
+}
+.message-icon{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.message-icon .iconfont{
+  font-size: 60rpx;
+  color: #fff;
+}
+.message-right{
+  margin-left: 15rpx;
+  flex:1;
+}
+.messgae-title{
+  color: #DCAA81;
+  margin-top: 10rpx;
+  align-items: flex-start;
+}
+.message-content{
+  color: #7E7E7E;
+  padding: 10rpx 0;
+  line-height: 46rpx;
+  margin-top: 10rpx;
+  padding-left: 56rpx;
+}
+.question-icon{
+  color: #fff;
+  background: #DCAA81;
+  height: 46rpx;
+  width: 46rpx;
+  border-radius: 23rpx;
+  text-align: center;
+  line-height: 46rpx;
+  font-size: 16px;
+}
+.question-title{
+  color: #333;
+  font-weight: 500;
+  padding-left: 16rpx;
+  flex: 1;
+  padding-bottom: 10rpx;
+}

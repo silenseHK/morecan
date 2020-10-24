@@ -1,0 +1,7 @@
+/* 单图组 */
+
+.diy-imageSingle .item-image .image {
+  display: block;
+  width: 94%;
+  margin: 0 3%;
+}

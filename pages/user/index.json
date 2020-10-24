@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "个人中心",
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "zan-dialog": "/components/dialog/index",
+        "diy-message": "/components/message/index",
+        "diy-navBar": "/components/diy/navBar/navBar",
+        "diy-component": "/components/diy/index"
+    }
+}

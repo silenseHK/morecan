@@ -1,0 +1,22 @@
+<!-- banner轮播 -->
+<view class="diy-banner">
+<view class="container-left">
+    <view wx:for="{{dataList.attr}}" wx:for-item="dataItem">
+      <view class="left-attr">{{dataItem}}</view>
+    </view>
+</view>
+  <view class="container-right">
+	<!-- tab栏 -->
+	<view class="header f-28 col-3">
+		<view catchtap="bindHeaderTap" class="{{index=== imgCurrent?'active':''}}" wx:for-item="dataItem" wx:for="{{dataList.product}}" wx:key="this" data-id="{{index}}">
+			<text>{{dataItem}}</text>
+		</view>
+	</view>
+  <swiper autoplay="{{ autoplay }}" class="banner-box swiper-box dot-{{ itemStyle.btnShape }}" duration="{{ duration }}" circular="{{ true }}" indicator-dots="{{ indicatorDots }}" interval="{{ params.interval }}" indicator-color="{{ itemStyle.btnColor }}" indicator-active-color="{{active_dot}}"
+    bindchange="_bindChange" data-item-key="{{ itemIndex }}" style="height: {{ imgHeights[imgCurrent] }}rpx" current="{{imgCurrent}}">
+    <swiper-item wx:for-item="dataItem" wx:for="{{dataList.list}}" wx:key="this" class="{{index==0?'item-content-active':''}}">
+      <view class="slide-item" style="display:flex;flex:1" wx:for-item="dataItems" wx:for="{{dataItem.spec_list}}" wx:key="this"><view>{{dataItems.content}}</view></view>
+    </swiper-item>
+  </swiper>
+  </view>
+</view>

@@ -1,0 +1,108 @@
+<view class="container">
+
+	<!-- 头部背景图 -->
+	<!-- <view class="dealer-bg">
+    <image mode="widthFix" src="{{ background }}"></image>
+  </view> -->
+
+	<!-- widget -->
+	<view class="widget-body dis-flex flex-dir-column flex-y-center">
+		<!-- 用户信息 -->
+		<view class="widget widget__base m-top20 b-f dis-flex flex-dir-column">
+			<!-- <view class="base__user f-30">
+        <view class="user-avatar">
+          <image src="{{ user.avatarUrl }}"></image>
+        </view>
+        <view class="user-nickName f-32">{{ user.nickName }}</view>
+        <view class="user-referee f-24 col-9">{{ words.index.words.referee.value }}：{{ dealer.referee ? dealer.referee.nickName : '平台' }}</view>
+      </view> -->
+			<view class="base__capital dis-flex flex-dir-column">
+				<!-- 佣金卡片 -->
+				<view class="capital-card dis-flex flex-dir-column">
+					<view class="card-left t-c flex-box dis-flex flex-x-around">
+						<view class="f-36">
+							<view>{{ can_withdraw_money }}</view>
+							<text class="f-24 col-6" space="ensp">待提现</text>
+						</view>
+						<view class="f-36">
+							<view>{{ wait_income_money }}</view>
+							<text class="f-24 col-6" space="ensp">待入账</text>
+						</view>
+						<view class="f-36">
+							<view>{{ wait_withdraw_money }}</view>
+							<text class="f-24 col-6" space="ensp">待付款</text>
+						</view>
+					</view>
+				</view>
+				<view class="card-withdraw-btn flex-box dis-flex flex-x-center flex-y-center">
+					<view class="withdraw-btn f-26" catchtap="navigationToWithdraw">去提现</view>
+				</view>
+				<!-- 已提现金额 -->
+				<view class="capital-already clear">
+					<!-- <view class="already-left f-28 fl"></view> -->
+					<view class="already-right f-28 fr">已提现：{{did_withdraw_money}}元</view>
+				</view>
+			</view>
+		</view>
+
+
+		<view class="agent-block clear">
+			<view class="agent-widget-operat">
+				<view class="agent-operat-item">
+					<navigator hover-class="none" url="../withdraw/list/list">
+						<view class="item-icon">
+							<view class="agent-icon-bg">
+								<text class="iconfont icon-yinhangka agent-item-icon"></text>
+							</view>
+						</view>
+						<view class="item-text">提现记录</view>
+					</navigator>
+				</view>
+			</view>
+
+      <view class="agent-widget-operat">
+				<view class="agent-operat-item">
+					<navigator hover-class="none" url="../money/sale">
+						<view class="item-icon">
+							<view class="agent-icon-bg">
+								<text class="iconfont icon-kucun1 agent-item-icon"></text>
+							</view>
+						</view>
+						<view class="item-text">销售额</view>
+					</navigator>
+				</view>
+			</view>
+
+      <view class="agent-widget-operat">
+				<view class="agent-operat-item">
+					<navigator hover-class="none" url="../money/rebate">
+						<view class="item-icon">
+							<view class="agent-icon-bg">
+								<text class="iconfont icon-lirun agent-item-icon"></text>
+							</view>
+						</view>
+						<view class="item-text">佣金明细</view>
+					</navigator>
+				</view>
+			</view>
+
+		</view>
+
+	</view>
+</view>
+
+<!-- 当前不是分销商 -->
+<view class="container b-f" wx:if="{{ !is_agent && isData }}">
+	<view class="no-dealer">
+		<view class="no-icon dis-flex flex-x-center">
+			<image src="/images/not-dealer.png"></image>
+		</view>
+		<view class="no-msg dis-flex flex-x-center f-30" style="">{{ words.index.words.not_dealer.value }}</view>
+		<!-- 立即申请 -->
+		<view class="no-submit form-submit dis-flex flex-x-center">
+			<form bindsubmit="triggerApply" report-submit="true">
+				<button formType="submit">{{ words.index.words.apply_now.value }}</button>
+			</form>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,17 @@
+<view class="container f-w" style="height: {{clientHeight}}px;">
+
+  <view class="send-title t-c">你希望我们如何获得Ta的健康状况？</view>
+
+<view class="way-container dis-flex flex-dir-column">
+  <button class="finish-btn" open-type="share">由Ta提供</button> 
+  <view class="way-desc">精准定制，送Ta全面关怀</view>
+  <view class="other t-c f-36">
+    <view>or</view>
+  </view>
+  <button class="finish-btn" catchtap="formSubmit">由我提供</button> 
+  <view class="way-desc">惊喜定制，送Ta神秘关怀</view>
+</view>
+ 
+
+
+</view>

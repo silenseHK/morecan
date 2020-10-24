@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "银行卡管理",
+  "usingComponents": {
+    "shortcut": "/components/shortcut/shortcut"
+  }
+}

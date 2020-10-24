@@ -1,0 +1,44 @@
+  <view style="height: {{swiperHeight}}px;background:#f2f2f2;margin: 0 95rpx">
+    <view class="top-title">
+      <view class="line-bold"></view>
+        <view>PERSONAL</view>
+        <view class="tag-titile">NUTRITION
+          <view class="tag-words-background"></view>
+        </view>
+        <view>QUESTIONNAIRE</view>
+        <view class="line-normal">
+      </view>
+    </view>
+    <view class="f-w main-title">个人营养问卷</view>
+    <view class="m-top20">
+      <view class="list-item dis-flex flex-y-center"><view class="dot"></view><view>完成问卷大概需要</view><span>5-10</span><view> 分钟</view></view>
+
+      <view class="list-item dis-flex flex-y-center"><view class="dot"></view><view>问卷由德熙神飞</view></view>
+
+      <view class="list-item dis-flex" style="margin-left:24rpx"><span style="background:#e5c39f">国家级专业营养师团队</span><view>设计</view></view>
+
+      <view class="list-item dis-flex flex-y-center"><view class="dot"></view><view>采用国际营养学界主流的</view><view>—</view></view>
+
+
+       <view class="list-item dis-flex" style="margin-left:24rpx"><span style="padding: 0 8rpx">「前瞻性队列研究」</span></view>
+      
+      <view class="list-item dis-flex" style="margin-left:24rpx"><span style="padding: 0 8rpx">「历史性队列研究」</span></view>
+
+      <view class="list-item dis-flex" style="margin-left:24rpx"><span style="padding: 0 8rpx">「及双向性队列研究方法」</span></view>
+      
+
+    </view>
+    <!-- <ul>
+              <li>完成问卷大概需要5-10分钟</li>
+              <li>问卷由德熙神飞</li>
+              <li>国家级专业营养师团队设计</li>
+              <li>采用国际营养学界主流的</li>
+              <li>前瞻性队列研究-</li>
+              <li>历史性队列研究-</li>
+              <li>及双向性队列研究方法</li>
+            </ul> -->
+        <!-- 下单按钮 -->
+        <view class="bottom-buy dis-flex flex-x-center">
+          <view catchtap="onConfirmSubmit" class="f-w bottom-buy-btn">开始答题</view>
+        </view>
+  </view>

@@ -1,0 +1,76 @@
+.navigationBar{
+  position: fixed;
+  top:0;
+  z-index: 9;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 12rpx 20rpx rgb(230, 195, 160,0.4);
+}
+.top-fixed-container{
+  position:absolute;
+  bottom:18rpx;
+  padding: 0 30rpx;
+}
+.top-fixed-button{
+  height: 66rpx;
+  line-height: 66rpx;
+  border-radius: 66rpx;
+  background: #E6C3A0;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-left: 16rpx;
+}
+.icon-logo1{
+  font-size: 48rpx;
+}
+.share-icon{
+  position: absolute;
+  z-index: 2;
+  top: 150rpx;
+  right: 30rpx;
+  color: #fff;
+}
+.share-icon{
+  font-size: 52rpx;
+}
+
+/* 商品海报 弹出层 */
+
+.pop-poster {
+  position: relative;
+  background: #fff;
+  padding: 42rpx;
+  border-radius: 10rpx;
+}
+
+/* 关闭按钮 */
+
+.pop-poster .pop-close {
+  position: absolute;
+  width: 56rpx;
+  height: 56rpx;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 25rpx rgba(0, 0, 0, 0.15);
+  right: -28rpx;
+  top: -28rpx;
+}
+
+.pop-poster .pop-close text {
+  display: block;
+}
+
+.pop-poster .poster__image {
+  padding: 0 40rpx;
+}
+
+.pop-poster .poster__image image {
+  box-shadow: 0 0 25rpx rgba(0, 0, 0, 0.15);
+  width: 460rpx;
+  height: 696.746rpx;
+}
+
+.pop-poster .profile-btn button {
+  margin-bottom: 0;
+}

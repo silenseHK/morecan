@@ -1,0 +1,40 @@
+<view class="navigationBar" wx:if="{{showFixedNav}}" style="height:{{isIPX?'88px':'68px'}};">
+  <view class="dis-flex flex-y-center top-fixed-container"> 
+      <view><text class="iconfont icon-logo1"></text></view>
+  </view>
+</view>
+
+
+<scroll-view bindscroll="scroll" scroll-y="true" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+<view class="container b-f" style="position:relative">
+
+<view class="top-container">
+
+      <!-- <view class="f-36 f-w">{{page.params.name}}</view> -->
+      <view style="top:{{ isIPX?'180rpx':'140rpx' }}" bindtap="onClickShareItem" class="f-40 f-w iconfont icon-qrcode share-icon"></view>
+  </view>
+  <!-- DIY组件 -->
+  <diy-component diyItems="{{ items }}"></diy-component>
+
+</view>
+</scroll-view>
+
+<!-- 商品海报 弹出层 -->
+<zan-popup show="{{ share.showPopup }}" bindclose="onTogglePopup">
+  <view class="pop-poster pop-example__container">
+    <!-- 关闭按钮 -->
+    <view class="pop-close dis-flex flex-x-center flex-y-center" catchtap="onTogglePopup">
+      <text class="iconfont icon-deri22 f-30 col-9"></text>
+    </view>
+    <form bindsubmit="onSavePoster" report-submit="true">
+      <view class="poster__image">
+        <image mode="widthFix" src="{{ qrcode }}"></image>
+      </view>
+      <view class="poster__tips m-top10 t-c">
+      </view>
+      <view class="padding-box m-top10 profile-btn">
+        <button formType="submit">保存图片</button>
+      </view>
+    </form>
+  </view>
+</zan-popup>

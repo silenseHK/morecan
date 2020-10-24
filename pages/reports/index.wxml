@@ -1,0 +1,50 @@
+<view class="product-container" wx:if="{{ isLogin }}">
+  <!-- 顶部选项卡 -->
+  <view class="swiper-tab dis-flex box-align-center flex-y-center">
+    <block wx:for="{{ tabList }}" wx:key="this">
+      <view class="swiper-tab-item {{ dataType == item.value ? 'on' : ''}} f-w" data-current="{{ item.value }}" bindtap="swichNav">{{ item.text }}</view>
+    </block>
+  </view>
+	<view class="product-list" wx:if="{{productList.length>0}}">
+		<view class="product-item" wx:for="{{productList}}" wx:for-index="index" wx:key="{{item.id}}">
+			<movable-area>
+				<movable-view out-of-bounds="true" direction="horizontal" x="{{item.xmove}}" inertia="true" data-productIndex="{{index}}" bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindchange="handleMovableChange">
+					<view class="product-item-wrap" bindtap="toReportDetail" data-id="{{item.fill_id}}">
+						<view class="product-movable-item">
+							<view class="dis-flex flex-x-between">
+								<view class="f-32 col-3 f-n">{{item.createTime}}</view>
+								<!-- <view wx:for="{{item.goals}}">
+              <text class="order-navbar__icon iconfont icon-form"></text>
+              </view> -->
+							</view>
+
+							<view class="product-movable-item-name onelist-hidden">{{item.username}}</view>
+							<view class="f-28 col-6 product-movable-item-code">营养师建议：{{item.goals.length}}个改善目标</view>
+						</view>
+					</view>
+				</movable-view>
+			</movable-area>
+			<view class="delete-btn" data-id="{{item.fill_id}}" bindtap="handleDeleteProduct">删除</view>
+		</view>
+	</view>
+	<!-- 没有数据 -->
+	<view wx:if="{{ !isLoading && !productList.length }}">
+		<view class="yoshop-notcont">
+			<text class="iconfont icon-wushuju"></text>
+			<text class="cont">没有找到报告哦</text>
+		</view>
+		<view class="dis-flex flex-x-center flex-box">
+			<view class="toLoginBtn f-28" bindtap="toQuestion">填写问卷</view>
+		</view>
+	</view>
+</view>
+
+<view class="dis-flex flex-x-center flex-dir-column container" wx:else>
+	<view class="yoshop-notcont">
+		<text class="iconfont icon-wushuju"></text>
+		<text class="cont">还没有登录哦</text>
+	</view>
+	<view class="dis-flex flex-x-center flex-box">
+		<view class="toLoginBtn f-28" bindtap="toLogin">点击登录</view>
+	</view>
+</view>

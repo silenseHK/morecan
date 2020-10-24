@@ -1,0 +1,159 @@
+<view class="container p-bottom" style="padding-bottom:137rpx">
+  <view class="flow-list">
+    <view wx:if="{{plan.length}}">
+      <view class="cart-edit-wrap dis-flex flex-x-between">
+      <text class="f-36 f-w">营养师推荐套餐</text>
+        <!-- <text class="f-30 f-w" data-action="edit">服用说明</text> -->
+      </view>
+      <view wx:for="{{plan}}" wx:key="this">
+        <view wx:if="{{index !== plan.length-1}}" class="dish-item dis-flex">
+
+            <view class="dish-item-wrp dis-flex flex-box" catchtap="onChecked" data-index="{{ index }}">
+          <!-- 选择框 -->
+          <view class="dish-item-radio">
+            <label class="radio">
+              <radio checked="{{ item.checked }}" color="#E6C3A0"></radio>
+            </label>
+          </view>
+     
+            
+            <!-- 商品信息 -->
+            <view class="dish-item-info flex-box">
+
+                <view class="goods-name">
+                  <text class="f-34 f-w">{{item.title}}</text>
+                </view>
+                <view class="goods-attr dis-flex plan-desc">
+                  <text class="col-3 twolist-hidden plan-desc-text">{{item.description}}</text>
+                </view>
+
+              <view class="dis-flex flex-x-between m-top10">
+                <!-- 商品盒数 -->
+                  <view class="dish-item-money">{{ item.num }}<text>盒</text></view>
+                  <view class="dish-item-money">{{item.min_cycle}}-{{item.max_cycle}}<text>天</text></view>
+                <view class="dish-item-money">￥{{ item.goods_price }}<text>/盒</text></view> 
+              </view>
+            </view>
+            </view>
+               
+            <!-- 商品图片 -->
+            <navigator hover-class="none" url="../goods/index?goods_id={{item.goods_id}}">
+              <view class="dish-item-pic">
+                <image mode="aspectFill" class="image" src="{{ item.image.file_path }}"></image>
+              </view>
+            </navigator>
+
+        </view>
+
+
+        <!-- 自定义数量 -->
+        <view wx:else>
+              
+      <view class="cart-edit-wrap dis-flex flex-dir-column">
+      <text class="f-36 f-w">自定义数量</text>
+        <text class="f-28 f-w" style="color:#5d5d5d" data-action="edit">*购买价格会根据购买数量动态改变</text>
+      </view>
+
+        <view class="dish-item dis-flex" data-index="{{index}}">
+
+            <view class="dish-item-wrp dis-flex flex-box" catchtap="onChecked" data-index="{{index}}">
+          <!-- 选择框 -->
+          <view class="dish-item-radio">
+            <label class="radio">
+              <radio checked="{{ item.checked }}" color="#E6C3A0"></radio>
+            </label>
+          </view>
+     
+            
+            <!-- 商品信息 -->
+            <view class="dish-item-info flex-box">
+
+                <view class="goods-name">
+                  <text class="f-34 f-w">{{item.goods.goods_name}}</text>
+                </view>
+                <view class="goods-attr dis-flex plan-desc">
+                  <text class="col-3 twolist-hidden plan-desc-text">{{item.description}}</text>
+                </view>
+
+              <view class="dis-flex flex-x-between m-top10">
+                <!-- 数量选择器 -->
+                <view class="selectNumber">
+                  <button catchtap="onSubCount" class="default {{goods_num>1?'':' default-active'}}" data-index="{{index}}" data-sku-id="{{item.goods_sku_id}}" type="default">-</button>
+                  <input bindinput="onInputGoodsNum" type="number" value="{{goods_num}}" data-index="{{index}}" data-sku-id="{{item.goods_sku_id}}"></input>
+                  <button catchtap="onAddCount" class="default" data-index="{{index}}" data-sku-id="{{item.goods_sku_id}}" type="default">+</button>
+                </view>
+
+                <view class="dish-item-money">￥{{ goods_price }}<text>/盒</text></view>
+                
+              </view>
+            </view>
+            </view>
+               
+            <!-- 商品图片 -->
+            <navigator hover-class="none" url="../goods/index?goods_id={{item.goods_id}}">
+              <view class="dish-item-pic">
+                <image mode="aspectFill" class="image" src="{{ item.image.file_path }}"></image>
+              </view>
+            </navigator>
+
+          </view>
+        </view>
+
+      </view>
+
+ 
+
+      <!-- 底部操作栏 -->
+      <view class="cart-tab-wrp">
+        <view class="cart-item-total cart-tab-item dis-flex flex-x-center flex-dir-column">
+          <view class="save-money f-30 f-w">
+              已优惠: <text>￥{{saveMoney}}</text>
+          </view>
+          <view class="cart-item-total-price dis-flex f-w">
+            <text class="f-30 col-m">合计：￥{{cartTotalPrice}}</text>
+          </view>
+        </view>
+        <view class="cart-tab-item_1">
+          <view catchtap="submit" class="cart-tab-item-btn">购买({{goodsPayNum}}盒)</view>
+        </view>
+      </view>
+    </view>
+    <!-- <view wx:else>
+      <view class="yoshop-notcont">
+        <text class="iconfont icon-wushuju"></text>
+        <text class="cont">亲，购物车还没有商品哦</text>
+        <view catchtap="goShopping" class="flow-btn-min">去购物</view>
+      </view>
+    </view> -->
+  </view>
+</view>
+
+<!-- 授权登录 弹出层 -->
+<zan-popup show="{{ share.showPopup }}" bindclose="onTogglePopup">
+  <view class="pop-poster pop-example__container">
+
+      <!-- <view class="poster__image">
+        <image mode="widthFix" src="{{ qrcode }}"></image>
+      </view> -->
+    <view class="login-container dis-flex flex-dir-column flex-x-center">
+      <view class="t-c">微信授权登录</view>
+      <view class="wechatapp">
+            <view class="avatat-header">
+              <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="auth-subtitle">获得你的公开信息（昵称、头像等）</view>
+      </view>
+            
+    </view>
+    <view class="dis-flex m-top10">
+      <view class="no-login-btn">
+        <button catchtap="onCloseLogin">暂不登录</button>
+      </view>
+      <view class="login-btn">
+        <button catchtap="toLogin">授权登录</button>
+      </view>
+    </view>
+     
+
+  </view>
+</zan-popup>

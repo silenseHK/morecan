@@ -1,0 +1,52 @@
+<view class="question-header">
+    <!-- 搜索框 -->
+<view class="diy-search">
+      <view class="inner round">
+        <view class="search-input dis-flex flex-y-center">
+          <text class="f-36 search-icon iconfont icon-icon-test35"></text>
+          <input bindinput="getSearchContent" class="search-input" confirm-type="search" bindconfirm="search" placeholder="请输入问题关键字" placeholderStyle="color:#aba9a9" type="text"></input>
+        </view>
+      </view>
+</view>
+
+<!-- 分类tab -->
+<view class="header">
+  <scroll-view scroll-x scroll-left style="height: 100%;">
+    <view class="cs {{ cate_id ==  0 ? 'active' : '' }}" catchtap="onSwitchTab" data-id="0">
+      <text>全部</text>
+    </view>
+    <!-- 分类列表 -->
+    <view class="cs {{  item.cate_id == cate_id ? 'active' : '' }}" catchtap="onSwitchTab" wx:for="{{ categoryList }}" wx:key="this" data-id="{{ item.cate_id }}">
+      <text>{{ item.title }}</text>
+    </view>
+  </scroll-view>
+</view>
+</view>
+
+
+  <view class="goods-detail-box question-container">
+		<scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 750rpx;">
+    <view class="wrapper" wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}" wx:key="index" catchtap="onTargetDetail" data-id="{{ item.question_id }}">
+        <view class="message-item b-f dis-flex">
+          <view class="message-right">
+              <view class="messgae-title f-30 dis-flex flex-y-center">
+              <view class="question-icon f-32">Q</view>
+              <view class="question-title b-b">{{item.title}}</view>
+              </view>
+              <view class="message-content f-26">{{item.desc}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{ no_more && has_more }}" class="no-more f-30">没有更多相关信息了</view>
+			<view wx:if="{{ !isLoading && !list.length }}">
+				<view class="yoshop-notcont">
+					<text class="iconfont icon-wushuju"></text>
+					<text class="cont">还没有信息哦</text>
+				</view>
+			</view>
+
+</scroll-view>
+</view>
+<!-- <view>{{list}}</view> -->

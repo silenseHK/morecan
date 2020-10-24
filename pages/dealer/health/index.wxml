@@ -1,0 +1,43 @@
+<view class="question-header">
+    <!-- 搜索框 -->
+<view class="diy-search">
+      <view class="inner round">
+        <view class="search-input dis-flex flex-y-center">
+          <text class="f-36 search-icon iconfont icon-icon-test35"></text>
+          <input bindinput="getSearchContent" class="search-input" confirm-type="search" bindconfirm="search" placeholder="请输入直属团队手机号搜索" placeholderStyle="color:#aba9a9" type="text"></input>
+        </view>
+      </view>
+</view>
+</view>
+
+
+  <view class="goods-detail-box question-container">
+		<scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 750rpx;">
+    <view class="wrapper" wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}" wx:key="index" catchtap="onTargetDetail" data-id="{{ item.fill_id }}">
+        <view class="message-item b-f dis-flex flex-y-center">
+          <view class="user-avatar">
+						<image src="{{ item.avatarUrl }}"></image>
+					</view>
+          <view class="message-right">
+              <view class="messgae-title f-30 dis-flex flex-y-center b-b">
+                <view class="question-title">{{item.nickName}}</view>
+                <view>BMI：{{item.bmi}}</view>
+              </view>
+              <!-- <view class="message-content f-26">手机号：{{item.mobile}}</view> -->
+              <view class="message-content f-26">{{item.create_time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{ no_more && has_more }}" class="no-more f-30">没有更多问卷啦</view>
+			<view wx:if="{{ !isLoading && !list.length }}">
+				<view class="yoshop-notcont">
+					<text class="iconfont icon-wushuju"></text>
+					<text class="cont">还没有问卷哦</text>
+				</view>
+			</view>
+
+</scroll-view>
+</view>
+<!-- <view>{{list}}</view> -->

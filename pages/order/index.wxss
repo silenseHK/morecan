@@ -1,0 +1,220 @@
+
+.order-item{
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-radius: 15rpx;
+  background: #fff;
+}
+
+.order-box {
+  padding: 0 15px;
+}
+
+.order-header {
+  border-bottom: 1rpx solid #F1F1F1;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+}
+
+.order-header .title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.order-header .cont {
+  /* display: block; */
+  color: #EB0B00;
+}
+
+.order-cont {
+  padding: 15rpx 0;
+  justify-content: space-between;
+}
+
+.order-cont .order-num text, .order-cont .order-time text {
+  color: #777;
+  font-size: 26rpx;
+}
+
+.order-shop {
+  padding: 16rpx 0 16rpx 0;
+}
+
+.order-shop-left, .order-shop-left image {
+  width: 160rpx;
+  height: 160rpx;
+  /* border: 1rpx solid #e4e4e4; */
+  margin-right: 15rpx;
+  display: inline-block;
+  background: #fff;
+  border-radius: 15rpx;
+}
+
+.order-shop-right .goods-name{
+  color: #212121;
+  font-weight: bold;
+}
+.order-shop-right .goods-attr{
+  color: #7E7E7E;
+  margin-top: 6rpx;
+}
+
+.order-shop .num {
+  float: right;
+}
+
+.order-btn {
+  padding: 2rpx 0 18rpx 0;
+}
+
+.order-btn .order-left {
+  /* flex: 3; */
+}
+
+.order-btn .order-left text, .order-btn .order-left .text {
+  font-size: 29rpx;
+}
+
+.order-btn .order-left .text {
+  color: #888;
+}
+
+.order-btn .order-right {
+  flex: 3;
+}
+
+.order-btn .order-right .btn-group {
+  justify-content: flex-end;
+}
+
+.order-list-box .left {
+  flex: 4;
+  overflow: hidden;
+  position: relative;
+}
+
+.order-list-box .right {
+  flex: 1;
+}
+
+
+.goods-number {
+  font-size: 24rpx;
+  color: #B0B0B0;
+}
+
+.btn-default {
+  border-radius: 13px;
+  border: 1rpx solid #D7D7D7;
+  padding: 6rpx 30rpx;
+  font-size: 28rpx;
+  color: #6B6B6B;
+  float: right;
+}
+
+.btn-main {
+  border-radius: 13px;
+  border: 1rpx solid #ff6239;
+  padding: 6rpx 30rpx;
+  font-size: 26rpx;
+  color: #ff6239;
+  margin-left: 10rpx;
+  float: right;
+}
+
+.user-orderJtou {
+  font-size: 24rpx;
+}
+
+.order-img_list {
+  background: #fff;
+  /* border-top: 1rpx solid #f1f1f1; */
+  /* border-bottom: 1rpx solid #f1f1f1; */
+}
+
+.order-right-name {
+  position: absolute;
+  top: 50%;
+  left: 180rpx;
+  font-size: 30rpx;
+  color: #555;
+  width: 100%;
+  margin-top: -46rpx;
+  line-height: 1.6;
+}
+
+/* 弹出层 */
+
+.pop-example__container {
+  background: #fff;
+  padding: 30rpx 40rpx;
+  border-radius: 10rpx;
+  min-width: 460rpx;
+}
+
+.pop-example__container .pop-title {
+  text-align: center;
+}
+
+.pop-content {
+  margin-top: 30rpx;
+}
+
+/* 弹出层：核销码 */
+
+.pop-qrcode .pop-content image {
+  display: block;
+  width: 460rpx;
+  height: 460rpx;
+}
+
+/* 弹出层：支付方式 */
+
+.pop-orderPay .pop-title {
+  text-align: left;
+}
+
+.pay-method .pay-item {
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  /* border-bottom: 1rpx solid rgb(248, 248, 248); */
+}
+
+.pay-method .pay-item .item-left_icon {
+  margin-right: 20rpx;
+  font-size: 32rpx;
+}
+
+.pay-method .pay-item .item-left_icon.wechat {
+  color: #00c800;
+}
+
+.pay-method .pay-item .item-left_icon.balance {
+  color: #ff9700;
+}
+.deliver-desc{
+  margin-left: 10rpx;
+  background: #ff6239;
+  color: #fff;
+  padding: 2rpx 8rpx;
+  border-radius: 22rpx 22rpx 0 22rpx;
+  font-weight: normal;
+}
+.trans-desc{
+  margin-left: 10rpx;
+  background: rgba(0, 118, 255, 1);
+  color: #fff;
+  padding: 2rpx 8rpx;
+  border-radius: 22rpx 22rpx 0 22rpx;
+  font-weight: normal;
+}
+.no-order-icon{
+  font-size: 80rpx;
+}
+.toLoginBtn{
+  color: #ff6239;
+  border: 1rpx solid #ff6239;
+  border-radius: 26rpx;
+  padding: 6rpx 26rpx;
+}

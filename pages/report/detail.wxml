@@ -1,0 +1,43 @@
+<view style="padding: 0 30rpx" wx:if="{{ !isLoading }}">
+	<view class="item-container">
+		<view class="dis-flex">
+			<view>
+				<text style="font-size:120rpx" class="iconfont icon-record"></text>
+			</view>
+			<view class="common-title" style="margin-left: 10rpx">
+				<view>你的</view>
+				<view class="tag-words m-top10">个人营养报告</view>
+			</view>
+		</view>
+		 <view class="desc-content">
+			<text>根据您填写的报告，以下是168太空素食为您定制的健康建议，逐步改善饮食和生活习惯。</text>
+		</view>
+		<view class="common-title m-top30">个人营养建议</view>
+		<view class="desc-content m-top20">
+    <text wx:if="{{bmi_advice}}">{{bmi_advice}}</text>
+			<text wx:else>您的身体质量指数BMI= {{bmi}}kg/m2,
+根据您的身体状况，为您建议以下营养健康建议：</text>
+		</view>
+	</view>
+
+	<view class="item-container" wx:for="{{list}}" wx:if="{{item.advice.length > 0}}">
+		<view class="dis-flex">
+			<view class="common-title tag-words">{{item.title}}</view>
+		</view>
+		<view class="desc-content">
+			<view class="list-item dis-flex m-top30" wx:for="{{item.advice}}" :key="index">
+				<view class="list-item-num">{{index<9?'0':''}}{{index+1}}</view>
+				<view class="list-item-content"><text>{{item}}</text></view>
+			</view>
+		</view>
+	</view>
+	<view class="f-28 col-3 f-w t-c m-top20">
+		<view>营养师推荐<span class="tag-words">3个月</span>后</view>
+		<view>欢迎您再次填写该调查问卷，并重新分析健康状况</view>
+	</view>
+
+	<!-- 下单按钮 -->
+	<view class="bottom-buy dis-flex flex-x-center">
+		<view catchtap="onConfirmSubmit" class="f-w bottom-buy-btn">去下单</view>
+	</view>
+</view>

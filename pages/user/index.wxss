@@ -1,0 +1,428 @@
+/* 用户信息 */
+page{
+  background: #f3f3f3;
+}
+.user {
+  position: relative;
+  background: #f3f3f3;
+  margin-bottom: 120rpx;
+}
+
+/* .user-header {
+  display: flex;
+  padding-top: 1px;
+  width: 100%;
+  height: 310rpx;
+  align-content: center;
+  background-color: #fd0;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: auto 100%;
+} */
+.user-header{
+  position: relative;
+}
+.user-header::after {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 240px;
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 10rpx 10rpx 0px rgba(0, 0, 0, 0.01);
+  margin-left: -20%;
+  background-color: #E3C1A1;
+  background-image: linear-gradient(95deg,#FF7739 0%,#FC8B56 74%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.user-header .user-header-cont {
+  display: flex;
+  margin: auto;
+  /* margin-bottom: 135rpx; */
+  /* width: 79%; */
+  align-items: center;
+  position: absolute;
+  top: 160rpx;
+  z-index: 1;
+  width: 92%;
+  margin: 20rpx 4%;
+
+}
+
+.user-header .user-header-cont .user-header-avatar {
+  display: block;
+  margin-right: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 5rpx solid #fff;
+  overflow: hidden;
+}
+
+.user-header .user-header-cont-name {
+  font-size: 32rpx;
+  color: #fff;
+}
+
+/* 会员等级 */
+
+.user-header-grade {
+  background: #ffefe9;
+  margin-top: 12rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  border-radius: 10rpx;
+  padding: 2rpx 16rpx;
+  color: #ff6239;
+}
+
+/* .user-header-grade .user-grade_icon {
+  margin-top: -5rpx;
+} */
+
+.user-header-grade .user-grade_icon image {
+  display: block;
+  width: 32rpx;
+  height: 30rpx;
+}
+
+.user-header-grade .user-grade_name {
+  margin-left: 8rpx;
+  font-size: 24rpx;
+}
+
+/* 订单导航栏 */
+
+.order-navbar {
+  position: absolute;
+  left: 19rpx;
+  bottom: -100rpx;
+  margin: auto;
+  padding: 15rpx 0;
+  width: 95%;
+  box-shadow: 0 1rpx 5rpx 0px rgba(0, 0, 0, 0.05);
+  font-size: 30rpx;
+  /* border-top: 1rpx solid #eee; */
+  border-radius: 5rpx;
+  background: #fff;
+  border-radius: 15rpx;
+}
+
+.order-navbar-header {
+  margin: auto;
+  padding-bottom: 10rpx;
+  width: 91%;
+  /* height: 70rpx; */
+  /* border-bottom: 1px solid #eee; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-navbar-footer {
+  width: 100%;
+  padding: 10rpx 0px;
+}
+
+.order-navbar-footer .order-navbar-item .order-navbar__icon {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  padding: 10rpx 0;
+  color: #ff6239;
+  font-size: 40rpx;
+}
+
+.order-navbar-footer .order-navbar-item .order-navbar__name {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  margin-right: 10rpx;
+}
+
+.order-navbar-footer .order-navbar-item .order-badge {
+  position: absolute;
+  top: 0;
+  right: 55rpx;
+  font-size: 22rpx;
+  background: #ffefe9;
+  text-align: center;
+  line-height: 28rpx;
+  color: #ff6239;
+  border-radius: 100%;
+  min-height: 30rpx;
+  min-width: 30rpx;
+  padding: 1rpx;
+}
+
+/* 菜单列表 */
+
+.menus-list {
+  margin-top: 20rpx;
+  width: 94%;
+  margin: 0 3%;
+  border-radius: 15rpx;
+  margin-bottom: 50rpx;
+}
+
+.menus-list .menus-item {
+  position: relative;
+  padding: 28rpx 28rpx;
+  /* border-bottom: 1rpx solid #eee; */
+}
+
+.menus-list .menus-item .menus-item__name {
+  color: #444;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+}
+
+.menus-list .menus-item .menus-item__right .iconfont{
+  color: #f8c2af;
+}
+
+/* 我的钱包 */
+
+.my-asset {
+  /* background: #fff; */
+  /* height: 70rpx; */
+  padding: 20rpx 0;
+  padding-top: 10rpx;
+}
+
+.my-asset .asset-right {
+  width: 210rpx;
+  border-left: 1rpx solid #eee;
+}
+
+.asset-right_item {
+  text-align: center;
+  color: #666;
+}
+
+.asset-right_item .item-icon text {
+  font-size: 46rpx;
+}
+
+.asset-right_item .item-name {
+  margin-top: 10rpx;
+}
+
+.asset-right_item .item-name text {
+  font-size: 25rpx;
+}
+.asset-left{
+  padding-left: 36rpx;
+}
+.asset-left_item {
+  position: relative;
+  text-align: center;
+  color: #666;
+  flex: 1;
+  /* padding: 0 60rpx; */
+}
+
+.asset-left_item .item-value text {
+  font-size: 36rpx;
+  color: #ff6239;
+}
+
+.asset-left_item .item-name {
+  margin-top: 6rpx;
+  padding-bottom: 12rpx;
+}
+
+.asset-left_item .item-name text {
+  font-size: 25rpx;
+  color: #505050;
+}
+
+
+/* 代理样式 */
+.agent-top{
+  width: 94%;
+  margin: 0 3%;
+}
+.agent-top .logo{
+  font-size: 88rpx;
+  color: #fff;
+}
+.agent-top-title{
+  padding-top: 15rpx;
+}
+.agent-user{
+  width: 100%;
+  height: 472rpx;
+  padding-bottom: 40rpx;
+  position: relative;
+  overflow: hidden;
+}
+.agent-user .agent-user-bg{
+  position: absolute;
+  width: 140%;
+  height: 240px;
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 10rpx 10rpx 0px rgba(0, 0, 0, 0.01);
+  margin-left: -20%;
+  background-image: linear-gradient(95deg,#FF7739 0%,#FC8B56 74%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.agent-user .agent-user-bg .agent-bg-icon{
+  width: 360rpx;
+  height: 540rpx;
+  position: absolute;
+  background-size: contain;
+  left: 0;
+  top: 90rpx;
+  background-repeat: no-repeat;
+}
+.agent-user .agent-user-info{
+  position: absolute;
+  width: 94%;
+  margin: 0 3%;
+  /* height: 300rpx; */
+  /* border: 1px solid #000; */
+  top: 190rpx;
+}
+.agent-user .agent-grade{
+  width: 360rpx;
+  /* height: 240rpx; */
+  /* background: #212121; */
+  border-radius: 15rpx;
+  padding-right: 0;
+}
+.agent-user .agent-grade .agent-grade-name{
+    color: #ff6239;
+    margin-left: 15rpx;
+}
+.agent-user .agent-grade .agent-point{
+  margin-right: 15rpx;
+}
+.agent-user .agent-grade .agent-point .agent-point-info{
+  padding-bottom: 12rpx;
+}
+.agent-user .agent-grade-level{
+  background: #ffefe9;
+  height: 38rpx;
+  line-height: 38rpx;
+  border-radius: 10rpx;
+  padding: 2rpx 16rpx;
+  color: #ff6239;
+  position: absolute;
+  bottom: 0;
+}
+.agent-user .agent-grade-level text{
+  white-space: nowrap;
+  margin-left: 10rpx;
+}
+.agent-user .agent-grade-level image{
+  display: block;
+  width: 32rpx;
+  height: 30rpx;
+  margin-top: 2rpx;
+}
+.agent-user .agent-detail-info{
+  position: absolute;
+  width: 100%;
+  height: 280rpx;
+  background: #fff;
+  top: 50rpx;
+  border-radius: 15rpx;
+  /* box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.16); */
+}
+.agent-user .agent-avatar{
+  /* position: absolute;
+  top: -17rpx;
+  left: 40rpx; */
+  margin: 15rpx;
+  flex: 1;
+  margin-bottom: 0;
+}
+.agent-user .agent-avatar .agent-avatar-img{
+  display: block;
+  margin-right: 20rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6rpx solid #ffefe9;
+}
+.agent-user .agent-avatar .agent-wechat-name{
+  color: #ff6239;
+  padding-bottom: 60rpx;
+  width: 140rpx;
+}
+.agent-user .agent-detail-info .invita-code{
+  width: 100%;
+  text-align: right;
+  margin-top: 20rpx;
+  color: #ff6239;
+  margin-left: -20rpx;
+  padding-bottom: 30rpx;
+}
+.agent-user .agent-order{
+  text-align: center;
+}
+.agent-user .agent-order .agent-order-item{
+  flex: 1;
+}
+.agent-user .agent-order .agent-info-num{
+  font-size: 50rpx;
+}
+.agent-user .agent-order .agent-order-name{
+  color: #A4A4A4;
+  margin-top: -10rpx;
+}
+.agent-user .agent-info-bottom{
+  position: absolute;
+  width: 100%;
+  height: 85rpx;
+  background: #212121;
+  bottom: 0;
+  border-radius: 0 0 15rpx 15rpx;
+  color: #ff6239;
+}
+.agent-user .agent-info-bottom view{
+  /* flex: 1; */
+  text-align: center;
+}
+
+.agent-money-more{
+  font-weight: normal;
+  color: #777;
+}
+.no-login-btn{
+  color: #fff;
+  padding: 6rpx 26rpx;
+  border: 1rpx solid #fff;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+
+.message{
+  position: absolute;
+  top: 68rpx;
+  left: 30rpx;
+  z-index: 9;
+}
+.message-name{
+  padding-left: 8rpx;
+  font-size: 32rpx;
+}
+.message .iconfont{
+  font-size: 38rpx;
+  color:#212121;
+  font-weight: 700;
+}
+
+.icon-help{
+  font-size: 32rpx!important;
+  margin-left: 5rpx;
+}

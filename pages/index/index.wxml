@@ -1,0 +1,49 @@
+
+<view class="navigationBar" style="height:{{isIPX?'88px':'68px'}};">
+  <view class="dis-flex flex-y-center top-fixed-container"> 
+      <text class="iconfont icon-logo-white-c logo"></text>
+  </view>
+</view>
+
+<view class="top-container">
+    <view class="dis-flex top-title flex-x-between flex-y-center">
+      <view class="f-32 ">{{page.params.title}}</view>
+      <view bindtap="onClickShareItem" class="f-40 f-w iconfont icon-fenxiang1 share-icon"></view>
+    </view>
+    <view class="index-top-bg">
+      <!-- <view class="index-bg-icon" style="background-image: url('{{page.otherBackground}}');"></view> -->
+    </view>
+</view>
+<view style="margin-top:{{ isIPX?'-380rpx':'-380rpx' }}" class="container b-f">
+
+  <!-- DIY组件 -->
+  <diy-component diyItems="{{ items }}"></diy-component>
+  <view>{{options.page_id}}</view>
+  <!-- 底线 -->
+  <!-- <view class="title-footer p-r">
+    <text class="f-24 col-9 cont">我是有底线的</text>
+    <view class="hr"></view>
+  </view> -->
+
+</view>
+
+
+<!-- 商品海报 弹出层 -->
+<zan-popup show="{{ share.showPopup }}" bindclose="onTogglePopup">
+  <view class="pop-poster pop-example__container">
+    <!-- 关闭按钮 -->
+    <view class="pop-close dis-flex flex-x-center flex-y-center" catchtap="onTogglePopup">
+      <text class="iconfont icon-deri22 f-30 col-9"></text>
+    </view>
+    <form bindsubmit="onSavePoster" report-submit="true">
+      <view class="poster__image">
+        <image mode="widthFix" src="{{ qrcode }}"></image>
+      </view>
+      <view class="poster__tips m-top10 t-c">
+      </view>
+      <view class="m-top10 profile-btn">
+        <button formType="submit">保存图片</button>
+      </view>
+    </form>
+  </view>
+</zan-popup>

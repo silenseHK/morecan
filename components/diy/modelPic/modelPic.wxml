@@ -1,0 +1,25 @@
+<!-- 单图组 -->
+<!-- <view class="diy-imageSingle" style="padding-bottom: {{ itemStyle.paddingTop }}px; background: {{ itemStyle.background }};">
+  <view class="item-image" wx:for="{{ dataList }}" wx:key="this" wx:for-item="dataItem" style="padding: {{ itemStyle.paddingTop }}px {{ itemStyle.paddingLeft }}px 0;">
+    <view class="nav-to" catchtap="navigationTo" data-url="{{ dataItem.linkUrl }}">
+      <image class="image" src="{{ dataItem.imgUrl }}" mode="widthFix"></image>
+    </view>
+  </view>
+</view> -->
+
+<view class="pop pop--{{ type }} {{ show ? 'pop--show' : '' }}">
+  <view wx:if="{{ overlay }}" class="pop__mask {{ showOverlay ? '' : 'pop__mask--hide' }}"
+  ></view>
+  <view class="pop__container">
+    <view class="item-image dis-flex flex-x-center" wx:for="{{ dataList }}" wx:key="this" wx:for-item="dataItem" style="margin-bottom: {{ itemStyle.paddingTop }}px {{ itemStyle.paddingLeft }}px 0;">
+    <view class="nav-to" catchtap="navigationTo" data-url="{{ dataItem.linkUrl }}">
+      <image style="margin: 0 {{ itemStyle.paddingLeft }}px;" class="image" src="{{ dataItem.imgUrl }}" mode="widthFix"></image>
+    </view>
+     <!-- 关闭按钮 -->
+    <view class="pop-close dis-flex flex-x-center flex-y-center" style="bottom: -{{ itemStyle.paddingTop }}px;" 
+    bindtap="handleMaskClick">
+      <text class="iconfont icon-deri22 f-30"></text>
+    </view>
+  </view>
+  </view>
+</view>

@@ -1,0 +1,73 @@
+/* banner轮播 */
+
+.diy-banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 15rpx;
+}
+
+.diy-banner .slide-image {
+  width: 94%;
+  margin: 0 3%;
+  display: block;
+  border-radius: 15rpx;
+}
+.diy-banner .slide-image image{
+  height: 100%;
+  border-radius: 15rpx;
+}
+
+/* 顶部置灰 */
+
+.diy-banner .linear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.4rem;
+  background: linear-gradient(#111, transparent);
+  opacity: 0.6;
+  z-index: 9;
+}
+.swiper-box{
+  background: none;
+  border-radius: 15rpx;
+  position: relative;
+  z-index: 2;
+  /* box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.3); */
+}
+.swiper-box:after{
+  content: '';
+  width: 92%;
+  height: 100rpx;
+  position: absolute;
+  background: none;
+  bottom: 2rpx;
+  left: 4%;
+  z-index: -1;
+  box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.5);
+}
+.swiper-item{
+  border-radius: 15rpx;
+}
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 2rpx;
+}
+
+/* banner组件按钮 */
+
+.swiper-box .wx-swiper-dot {
+  height: 20rpx;
+  width: 20rpx;
+  background: #fff;
+}
+
+.swiper-box.dot-rectangle .wx-swiper-dot {
+  width: 30rpx;
+  border-radius: unset;
+}
+
+.swiper-box.dot-square .wx-swiper-dot {
+  border-radius: unset;
+}

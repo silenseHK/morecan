@@ -1,0 +1,83 @@
+/* banner轮播 */
+
+.diy-banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+/* 顶部置灰 */
+
+.diy-banner .linear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.4rem;
+  background: linear-gradient(#111, transparent);
+  opacity: 0.6;
+  z-index: 9;
+}
+.swiper-box{
+  background: none;
+  position: relative;
+  z-index: 2;
+  /* box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.3); */
+}
+
+.swiper-item-content{
+  background: #fff;
+  border-radius: 20rpx;
+  border-left: 10rpx solid #efc192;
+  border-right: 10rpx solid #efc192;
+  box-shadow: 0 10rpx 30rpx -20rpx rgba(0, 0, 0, 0.2);
+}
+.swiper-impression-content{
+  font-size: 28rpx;
+  color: #333;
+  height: 150rpx;
+}
+.swiper-impression-user{
+  font-size: 24rpx;
+  color: #efc192;
+}
+
+
+
+/* banner组件按钮 */
+
+.swiper-box .wx-swiper-dot {
+  height: 20rpx;
+  width: 20rpx;
+  background: #fff;
+}
+
+.swiper-box.dot-rectangle .wx-swiper-dot {
+  width: 30rpx;
+  border-radius: unset;
+}
+
+.swiper-box.dot-square .wx-swiper-dot {
+  border-radius: unset;
+}
+
+.dots{  
+  display: flex;
+  justify-content: center;
+  padding-top: 10rpx;
+  padding-bottom: 30rpx;
+  background: #fafafa;
+}  
+/*未选中时的小圆点样式 */
+.dot{  
+  height: 16rpx;
+  width: 16rpx;
+  margin-right: 10rpx;
+  border-radius: 16rpx;
+  background-color: #f0f0f0;
+}  
+/*选中以后的小圆点样式  */
+.active{  
+  background-color: #efc192;
+} 

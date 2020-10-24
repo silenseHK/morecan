@@ -1,0 +1,204 @@
+<view class="container" wx:if="{{ isLogin }}">
+	<!-- tab栏 -->
+	<view class="header f-28 col-3">
+		<view catchtap="bindHeaderTap" class="{{dataType==='all'?'active':''}}" data-type="all">
+			<view>全部</view>
+		</view>
+		<view bindtap="bindHeaderTap" class="{{dataType==='payment'?'active':''}}" data-type="payment">
+			<view>待付款</view>
+		</view>
+		<view bindtap="bindHeaderTap" class="{{dataType==='delivery'?'active':''}}" data-type="delivery">
+			<view>待发货</view>
+		</view>
+		<view bindtap="bindHeaderTap" class="{{dataType==='received'?'active':''}}" data-type="received">
+			<view>待收货</view>
+		</view>
+		<view bindtap="bindHeaderTap" class="{{dataType==='comment'?'active':''}}" data-type="comment">
+			<view>已完成</view>
+		</view>
+	</view>
+	<!-- 订单列表 -->
+	<view class="goods-detail-box">
+		<scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 750rpx;margin-top:98rpx;">
+			<view class="wrapper" wx:if="{{list.data.length > 0}}">
+				<!-- <view wx:if="{{list.length}}"> -->
+				<view class="order-item m-top20" wx:for="{{list.data}}" wx:key="this" catchtap="navigateToDetail" data-id="{{item.order_id}}">
+					<view class="order-box">
+						<view class="order-header dis-flex">
+							<view class="t-l">
+								<view class="title f-w dis-flex flex-y-center">
+									<view>{{item.goods[0].goods_name}}</view>
+									<view class="{{item.delivery_type.value!=30?'trans-desc':'deliver-desc'}} f-24">{{item.delivery_type.text}}</view>
+								</view>
+							</view>
+							<view class="flex-box t-r">
+								<text class="cont f-28">{{item.state_text}}</text>
+							</view>
+						</view>
+					</view>
+					<view class="order-box">
+						<view class="order-cont dis-flex">
+							<view class="order-num">
+								<text>订单号：{{item.order_no}}</text>
+							</view>
+							<view class="order-time">
+								<text>{{item.create_time}}</text>
+							</view>
+						</view>
+					</view>
+					<view class="order-box order-img_list">
+						<view class="order-shop">
+							<view class="order-list-box dis-flex" wx:for="{{item.goods}}" wx:key="goods">
+								<view class="left">
+									<view class="dis-flex">
+										<view class="order-shop-left">
+											<image src="{{item.image.file_path}}"></image>
+										</view>
+										<view class="order-shop-right dis-flex flex-dir-column">
+											<view class="goods-name f-28">{{item.goods_name}}</view>
+											<text class="goods-attr f-24">{{item.goods_attr}}</text>
+										</view>
+									</view>
+								</view>
+								<view class="order-total-money right dis-flex flex-dir-column t-r">
+									<text class="f-28">￥{{item.goods_price}}</text>
+									<text class="goods-number f-24">X{{item.total_num}}</text>
+									<!-- <text class="iconfont icon-xiangyoujiantou user-orderJtou"></text> -->
+
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="order-box">
+						<view class="order-btn dis-flex flex-y-center">
+							<view class="order-left">
+								<view class="text">
+									<text>合计：</text>
+									<text class="col-m">￥{{item.pay_price}}</text>
+								</view>
+							</view>
+							<view class="order-right">
+								<view class="btn-group dis-flex" wx:if="{{ item.order_status.value != 20 }}">
+									<!-- 未支付取消订单 -->
+									<view wx:if="{{ item.pay_status.value==10 }}">
+										<view catchtap="cancelOrder" class="btn-default" data-id="{{item.order_id}}">取消</view>
+									</view>
+									<!-- 已支付取消订单 -->
+									<block wx:if="{{ item.order_status.value!=21 }}">
+										<!-- <view wx:if="{{ item.pay_status.value==20 && item.delivery_status.value==10 }}">
+                      <view catchtap="cancelOrder" class="btn-default" data-id="{{item.order_id}}">申请取消</view>
+                    </view> -->
+										<!-- 订单核销码 -->
+										<view wx:if="{{ item.pay_status.value==20 && item.delivery_type.value == DeliveryTypeEnum.EXTRACT.value && item.delivery_status.value == 10  && item.order_status.value !== 40 }}">
+											<view catchtap="onExtractQRCode" class="btn-main" data-id="{{item.order_id}}">
+												<text class="iconfont icon-qr-extract"></text>
+												<text class="m-l-10">核销码</text>
+											</view>
+										</view>
+									</block>
+									<block wx:else>
+										<view class="f-28 col-8">取消申请中</view>
+									</block>
+									<!-- 订单付款 -->
+									<view wx:if="{{item.pay_status.value==10}}">
+										<view catchtap="onPayOrder" class="btn-main" data-id="{{item.order_id}}">付款</view>
+									</view>
+									<!-- 确认收货 -->
+									<view wx:if="{{item.delivery_status.value==20 && item.receipt_status.value == 10  && item.order_status.value !== 40}}">
+									  <navigator class="dis-flex" hover-class="none" url="./express/express?order_id={{item.order_id}}">
+										<view class="btn-main" data-id="{{item.order_id}}">查看物流</view>
+										</navigator>
+									</view>
+									<view wx:if="{{item.delivery_status.value==20 && item.receipt_status.value == 10 && item.order_status.value !== 40 }}">
+										<view catchtap="receipt" class="btn-main" data-id="{{item.order_id}}">确认收货</view>
+									</view>
+
+									<view wx:if="{{item.order_status.value==30  &&  item.delivery_type.value !== 30 && item.order_status.value !== 40}}">
+									  <navigator class="dis-flex" hover-class="none" url="./express/express?order_id={{item.order_id}}">
+										<view class="btn-main" data-id="{{item.order_id}}">查看物流</view>
+										</navigator>
+									</view>
+									<!-- 订单评价 -->
+									<!-- <view wx:if="{{item.order_status.value==30 && item.is_comment==0}}">
+                    <view catchtap="comment" class="btn-default" data-id="{{item.order_id}}">评价</view>
+                  </view> -->
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view wx:if="{{ no_more }}" class="no-more f-30">没有更多了呢</view>
+			<view wx:if="{{ !isLoading && !list.data.length }}">
+				<view class="yoshop-notcont">
+					<text class="iconfont icon-wushuju"></text>
+					<text class="cont">您还没有订单信息哦！</text>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+
+	<!-- 核销码弹出层 -->
+	<zan-popup show="{{ showQRCodePopup }}" bindclose="onToggleQRCodePopup">
+		<view class="pop-qrcode pop-example__container">
+			<view class="pop-title">
+				<text class="f-30">核销二维码</text>
+			</view>
+			<view class="pop-content">
+				<image src="{{ QRCodeImage }}"></image>
+			</view>
+		</view>
+	</zan-popup>
+
+	<!-- 支付方式弹窗 -->
+	<zan-popup show="{{ showPayPopup }}" bindclose="onTogglePayPopup">
+		<view class="pop-orderPay pop-example__container">
+			<view class="pop-title">
+				<text class="f-30">请选择支付方式</text>
+			</view>
+			<view class="pop-content">
+				<view class="pay-method">
+					<form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<view class="pay-item dis-flex flex-x-between">
+								<view class="item-left dis-flex flex-y-center">
+									<view class="item-left_icon wechat">
+										<text class="iconfont icon-weixinzhifu"></text>
+									</view>
+									<view class="item-left_text">
+										<text>{{ PayTypeEnum.WECHAT.name }}</text>
+									</view>
+								</view>
+							</view>
+						</button>
+					</form>
+					<form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" report-submit="true">
+						<button formType="submit" class="btn-normal">
+							<view class="pay-item dis-flex flex-x-between">
+								<view class="item-left dis-flex flex-y-center">
+									<view class="item-left_icon balance">
+										<text class="iconfont icon-qiandai"></text>
+									</view>
+									<view class="item-left_text">
+										<text>{{ PayTypeEnum.BALANCE.name }}</text>
+									</view>
+								</view>
+							</view>
+						</button>
+					</form>
+				</view>
+			</view>
+		</view>
+	</zan-popup>
+
+</view>
+
+<view class="dis-flex flex-x-center flex-dir-column container" wx:else>
+	<view class="yoshop-notcont">
+		<text class="iconfont icon-wushuju"></text>
+		<text class="cont">您还没有登录哦</text>
+	</view>
+  <view class="dis-flex flex-x-center flex-box">
+    <view class="toLoginBtn f-28" bindtap="toLogin">点击登录</view>
+  </view>
+</view>

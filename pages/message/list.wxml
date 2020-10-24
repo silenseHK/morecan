@@ -1,0 +1,24 @@
+	<view class="goods-detail-box">
+		<scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 750rpx;">
+    <view class="wrapper" wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}" wx:key="index">
+        <view class="message-item b-f dis-flex">
+          <view class="message-right">
+              <view class="messgae-title f-30">{{item.title}}</view>
+              <view class="message-content f-26">{{item.content}}</view>
+              <view class="message-time f-24">{{item.effect_time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{ no_more && has_more }}" class="no-more f-30">没有更多消息了</view>
+			<view wx:if="{{ !isLoading && !list.length }}">
+				<view class="yoshop-notcont">
+					<text class="iconfont icon-wushuju"></text>
+					<text class="cont">您还没有信息哦！</text>
+				</view>
+			</view>
+
+</scroll-view>
+</view>
+<!-- <view>{{list}}</view> -->

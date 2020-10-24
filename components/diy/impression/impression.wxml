@@ -1,0 +1,19 @@
+<!-- banner轮播 -->
+<view class="diy-banner">
+  <swiper autoplay="{{ autoplay }}" class="banner-box swiper-box dot-{{ itemStyle.btnShape }}" duration="{{ duration }}" interval="{{ params.interval }}" circular="{{ true }}" indicator-dots="{{ indicatorDots }}"  indicator-color="{{ itemStyle.btnColor }}" indicator-active-color="{{active_dot}}"
+    bindchange="_bindChange" data-item-key="{{ itemIndex }}" style="padding: {{ itemStyle.paddingTop }}px 0 0; background: {{ itemStyle.background }};">
+    <swiper-item wx:for-item="itemData" wx:for="{{dataList}}" wx:key="this">
+      <view class="swiper-item-content" style="padding: {{ itemStyle.paddingTop }}px;margin: 0 {{ itemStyle.paddingLeft }}px">
+      <view class="swiper-impression-content">{{itemData.content}}</view>
+      <view class="swiper-impression-user">{{itemData.author}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+              <!--重置小圆点的样式  -->
+        <view class="dots">
+          <view wx:for="{{dataList}}" wx:for-item="itemDot" class="dot {{index==imgCurrent?'active':''}}"></view>  
+        </view>
+        <!--重置小圆点的样式 end -->
+  <!-- 顶部置灰 -->
+  <!-- <view class="linear"></view>  -->
+</view>

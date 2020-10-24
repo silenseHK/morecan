@@ -1,0 +1,67 @@
+
+/* 选项卡 */
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  height: 90rpx;
+  background-color: #fff;
+}
+
+.swiper-tab .swiper-tab-item {
+  width: 33.333333%;
+  height: 100%;
+  font-size: 28rpx;
+  color: #7E7E7E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 2px solid #fff;
+}
+.swiper-tab .on{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: #ff6239;
+}
+.swiper-tab .on::after{
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 6rpx;
+  border-radius: 6rpx;
+  background: #ff6239;
+  /* border-bottom: 1px solid #DCAA81; */
+  bottom: 8rpx;
+}
+
+/* 设置scroll-view容器高度 */
+
+.widget-list, .yoshop-notcont {
+  height: 100.1%;
+}
+
+/* 提现明细列表 */
+
+.widget-list {
+  padding: 10rpx 20rpx 40rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.widget__detail {
+  padding: 20rpx 15rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+
+.widget__detail .detail__money {
+  font-size: 30rpx;
+  margin-bottom: 12rpx;
+}
+
+.widget__detail .detail__reason {
+  margin-top: 15rpx;
+  color: #8e84fc;
+}

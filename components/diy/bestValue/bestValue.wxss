@@ -1,0 +1,154 @@
+.diy-banner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  z-index: 1;
+  overflow: hidden;
+}
+.diy-banner::after{
+  position: absolute;
+  left: 50rpx;
+  bottom: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+  z-index: -1;
+  /* margin-left: 50rpx; */
+}
+.container-left{
+  width: 18%;
+  height: 200rpx;
+  float: left;
+  margin-top: 100rpx;
+}
+.container-right{
+  width: 82%;
+  float: right;
+}
+.header {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  line-height: 100rpx;
+  z-index: 100;
+  justify-content: space-around;
+}
+
+.header view {
+  /* flex: 1; */
+  text-align: center;
+  margin: 0 10rpx;
+  color: #232323;
+  font-size: 26rpx;
+}
+
+.header view text {
+  display: block;
+}
+
+.header view.active {
+  color: #DCAA81;
+  position: relative;
+}
+
+.header view.active text {
+  font-size: 28rpx;
+}
+.header view.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 6rpx;
+  border-radius: 6rpx;
+  background: #DCAA81;
+  left: 0;
+  margin-top: -26rpx;
+}
+/* banner轮播 */
+
+
+
+.diy-banner .slide-item{
+  font-size: 26rpx;
+  margin: 32rpx 10rpx;
+}
+
+.item-content-active .slide-item view{
+  background: #efc192;
+  color: #fff;
+  padding: 0 5rpx;
+}
+/* 顶部置灰 */
+
+.diy-banner .linear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.4rem;
+  background: linear-gradient(#111, transparent);
+  opacity: 0.6;
+  z-index: 9;
+}
+
+
+.swiper-box{
+  background: none;
+  border-radius: 15rpx;
+  position: relative;
+  z-index: 2;
+  height: 400rpx;
+  /* box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.3); */
+}
+.swiper-box:after{
+  content: '';
+  width: 92%;
+  height: 100rpx;
+  position: absolute;
+  background: none;
+  bottom: 2rpx;
+  left: 4%;
+  z-index: -1;
+}
+.swiper-item{
+  border-radius: 15rpx;
+}
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 2rpx;
+}
+
+/* banner组件按钮 */
+
+.swiper-box .wx-swiper-dot {
+  height: 20rpx;
+  width: 20rpx;
+  background: #fff;
+}
+
+.swiper-box.dot-rectangle .wx-swiper-dot {
+  width: 30rpx;
+  border-radius: unset;
+}
+
+.swiper-box.dot-square .wx-swiper-dot {
+  border-radius: unset;
+}
+.left-attr{
+  font-size: 26rpx;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  margin: 32rpx 15rpx;
+}
+.left-attr::after{
+  position: absolute;
+  content: '';
+  left: 0;
+  height: 10rpx;
+  width: 100%;
+  background: #DCAA81;
+  bottom: 0;
+  z-index: -1;
+}

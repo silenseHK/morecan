@@ -1,0 +1,31 @@
+
+<view class="diy-imageSingle" style="background: {{ itemStyle.background }};">
+  <view class="item-image" wx:for="{{ dataList }}" wx:key="this" wx:for-item="dataItem">
+    <view class="nav-to" catchtap="navigationTo" data-url="{{ dataItem.linkUrl }}">
+      <image class="image" style="height:{{height}}px" src="{{ dataItem.imgUrl }}" mode="scaleToFill"></image>
+        <!-- banner -->
+  <view style="position:absolute;bottom:0;width:100%;left:0">
+
+      <view class="dis-flex flex-x-between index-btns" style="margin-bottom:{{itemStyle.paddingTop}}px;">
+        <view catchtap="navigationTo" data-url="{{ dataItem.linkUrl }}" class="start-btn">填写问卷</view>
+        <view catchtap="sendGift" data-url="{{ dataItem.linkUrl }}" class="start-btn send-gift-btn">
+          <text>送礼</text>
+          <image class="send-gift-icon" src="/images/liwu.png"></image>
+        </view>
+      </view>
+      
+
+      <swiper autoplay="{{ autoplay }}" class="banner-box swiper-box dot-{{ itemStyle.btnShape }}" duration="{{ duration }}" circular="{{ true }}" indicator-dots="{{ indicatorDots }}" interval="{{ params.interval }}" indicator-color="{{ itemStyle.btnColor }}" indicator-active-color="{{active_dot}}"
+    bindchange="_bindChange" data-item-key="{{ itemIndex }}" style="height: 208rpx;">
+    <swiper-item wx:for-item="banner" wx:for="{{bannerList}}" wx:key="this" class="banner-slide-item">
+      <image mode="scaleToFill" style="width:100%" catchtap="navigationTo" data-url="{{ banner.linkUrl }}" class="slide-image" bindload="_imagesHeight" src="{{banner.imgUrl}}" data-id="{{index}}" data-item-key="{{ itemIndex }}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="dis-flex flex-x-center" style="margin-top:-10rpx"><view class="iconfont icon-xiajiantous f-28"></view></view>
+
+
+  </view>
+    </view>
+  </view>
+
+</view>

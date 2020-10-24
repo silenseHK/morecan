@@ -1,0 +1,129 @@
+  <view style="height: {{swiperHeight}}px;background:#d2d4d7">
+  	<swiper autoplay="{{autoplay}}" class="banner-box  swiper-box" duration="{{duration}}" indicator-dots="{{indicatorDots}}" bindchange="_bindChange" interval="{{interval}}" circular="{{false}}" previous-margin="50rpx" next-margin="50rpx">
+  		<!-- 推荐餐 -->
+  		<swiper-item class="swiper-item" wx:if="{{pain_point}}" wx:for="{{pain_point}}" wx:key="this" data-index="{{ index }}">
+  			<view class="swiper-user-info" wx:if="{{ index== 0 && !isLoading}}">
+  				<view class="dis-flex flex-dir-column flex-x-center flex-y-center" style="position:relative;width:100%">
+  					<view class="user-bg-gold"></view>
+  					<view style="position:relative;top:35rpx;">
+  						<view wx:for="{{sex_bg}}">
+  							<image wx:if="{{sex==index}}" style="width:462rpx" src="{{item}}" mode="widthFix" />
+  						</view>
+
+  						<view class="info-container">
+  							<view class="username onelist-hidden">{{username}}</view>
+  						</view>
+  					</view>
+  					<!-- <view class="icon-list">
+                <text class="order-navbar__icon iconfont icon-form"></text>
+            </view> -->
+  					<!--  营养建议 -->
+  					<view class="dis-flex flex-x-center flex-dir-column  for-suggestion">
+  						<view class="f-36 col-3 f-w">营养师为你推荐</view>
+  						<view class="dis-flex flex-x-center flex-y-center">
+  							<view class="tag-words" wx:if="{{!isLoading}}">{{pain_point.length-1}}
+  								<view class="tag-words-background"></view>
+  							</view>
+  							<view style="padding-top:16rpx" class="col-3">种营养建议</view>
+  						</view>
+  					</view>
+  				</view>
+          <!-- 查看食谱 -->
+  					<view class="check-suggestions dis-flex flex-y-center flex-x-center">
+  						<view class="f-n" catchtap="toRecipes" data-id="{{fill_id}}">查看定制营养食谱 <text class="order-navbar__icon iconfont icon-yuanyoujiantou"></text></view>
+  					</view>
+  			</view>
+
+  			<view class="siwier-item-image f-w" wx:else>
+  				<view style="overflow-y:scroll;z-index:1;width:100%">
+						<!-- 解决方案 -->
+  					<view class="pain-point-content" style="background: {{item.background_bg}}">
+							<view class="resolve-content">
+								<view class="dosage f-28 col-3">{{item.resolve.dosage}}</view>
+								<view class="foods f-36 m-top10">{{item.resolve.foods}}</view>
+								<view class="resolve-content m-top10 f-26">{{item.resolve.content}}</view>
+							</view>
+  					</view>
+						<!-- 痛点 -->
+						<view class="pain-point-desc">
+							<view class="f-36">{{item.pain_point}}</view>
+							<view class="pain-point-item" wx:for="{{item.analysis}}" wx:key="index">
+									<view class="f-26">{{item}}</view>
+							</view>
+						</view>
+
+  					<!-- 查看建议 -->
+  					<view class="check-suggestions dis-flex flex-y-center flex-x-center">
+  						<view class="f-n" catchtap="toReportDetail" data-id="{{fill_id}}">了解更多生活饮食建议 <text class="order-navbar__icon iconfont icon-yuanyoujiantou"></text></view>
+  					</view>
+  				</view>
+  			</view>
+
+
+  		</swiper-item>
+			<!-- 旧的 -->
+  		<swiper-item wx:if="{{!pain_point}}" class="swiper-item" wx:for="{{food_list}}" wx:key="index" data-index="{{ index }}">
+  			<view class="swiper-user-info" wx:if="{{ index== 0 && !isLoading}}">
+  				<view class="dis-flex flex-dir-column flex-x-center flex-y-center" style="position:relative;width:100%">
+  					<view class="user-bg-gold"></view>
+  					<view style="position:relative;top:35rpx;">
+  						<view wx:for="{{sex_bg}}">
+  							<image wx:if="{{sex==index}}" style="width:462rpx" src="{{item}}" mode="widthFix" />
+  						</view>
+
+  						<view class="info-container">
+  							<view class="username onelist-hidden">{{username}}</view>
+  						</view>
+  					</view>
+  					<!-- <view class="icon-list">
+                <text class="order-navbar__icon iconfont icon-form"></text>
+            </view> -->
+  					<!--  营养建议 -->
+  					<view class="dis-flex flex-x-center flex-dir-column  for-suggestion">
+  						<view class="f-36 col-3 f-w t-c">营养师为你推荐</view>
+  						<view class="dis-flex flex-x-center flex-y-center">
+  							<view class="tag-words" wx:if="{{!isLoading}}">{{food_list.length-1}}
+  								<view class="tag-words-background"></view>
+  							</view>
+  							<view style="padding-top:16rpx" class="col-3">种营养建议</view>
+  						</view>
+							<view class="f-28 m-top10">问卷有更新哦，可以获取最新的营养建议</view>
+				
+  					</view>
+  				</view>
+          <!-- 查看食谱 -->
+  					<view class="check-suggestions dis-flex flex-y-center flex-x-center">
+  						<view class="f-n" catchtap="toRecipes" data-id="{{fill_id}}">查看定制营养食谱 <text class="order-navbar__icon iconfont icon-yuanyoujiantou"></text></view>
+  					</view>
+  			</view>
+
+  			<view class="siwier-item-image f-w" wx:else>
+  				<view style="overflow-y:scroll;z-index:1;width:100%">
+						<!-- 解决方案 -->
+  					  <view class="desc-content">
+
+							<image catchtap="onPreviewImages" data-index="{{index}}" style="width:100%" class="slide-image" mode="widthFix" src="{{item.file_path}}"></image>
+
+							</view>
+
+  					<!-- 查看建议 -->
+  					<view class="check-suggestions dis-flex flex-y-center flex-x-center">
+  						<view class="f-n" catchtap="toReportDetail" data-id="{{fill_id}}">了解更多生活饮食建议 <text class="order-navbar__icon iconfont icon-yuanyoujiantou"></text></view>
+  					</view>
+  				</view>
+  			</view>
+
+
+  		</swiper-item>
+  	</swiper>
+  	<!--重置小圆点的样式  -->
+  	<view class="dots">
+  		<view wx:for="{{pain_point}}" wx:key="this" :key="index" class="dot {{index==currentIndex?'active':''}}"></view>
+  	</view>
+  	<!--重置小圆点的样式 end -->
+
+  	<!-- 下单按钮 -->
+  	<view class="bottom-buy dis-flex flex-x-center">
+  		<view catchtap="onConfirmSubmit" class="f-w bottom-buy-btn">去下单</view>
+  	</view>
+  </view>

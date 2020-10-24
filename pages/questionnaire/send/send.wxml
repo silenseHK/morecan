@@ -1,0 +1,8 @@
+<view class="container f-w">
+  <view class="send-title t-c">我想送给：</view>
+  <view class="dis-flex send-item-container">
+    <view style="width: {{item.width}};height: {{item.height}}rpx;background: {{item.bgColor}};" class="send-item f-30" wx:for="{{dataJson}}" wx:key="index" catchtap="selectName" data-name="{{item.name}}" data-index="{{index}}">
+      <view class="flex-box f-32" style="font-size: {{item.fontsize}}rpx">{{item.name}}</view>
+    </view>
+  </view>
+</view>

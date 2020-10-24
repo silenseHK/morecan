@@ -1,0 +1,85 @@
+
+@import "/utils/common.wxss";
+/* banner组件按钮 */
+
+.swiper-box .wx-swiper-dot {
+  height: 20rpx;
+  width: 20rpx;
+  background: #fff;
+}
+
+.swiper-box.dot-rectangle .wx-swiper-dot {
+  width: 30rpx;
+  border-radius: unset;
+}
+
+.swiper-box.dot-square .wx-swiper-dot {
+  border-radius: unset;
+}
+
+
+.diy-imageSingle .item-image .image {
+  display: block;
+  width: 100%;
+  /* margin: 0 3%; */
+}
+.diy-imageSingle .item-image{
+  position: relative;
+}
+
+.start-btn{
+  /* position: absolute; */
+  width: 400rpx;
+  display: block;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 36rpx;
+  background-color: rgb(250, 208, 174);
+  color: #1E1E1E;
+  text-align: center;
+  border-radius: 70rpx;
+  font-weight: 600;
+  box-shadow: 0 10rpx 14rpx rgba(172, 171, 171, 0.5);
+}
+
+.banner-slide-item{
+  width: 670rpx!important;
+  padding: 10rpx 40rpx;
+  position: relative;
+  overflow: visible!important;
+}
+.banner-slide-item:after{
+  content: '';
+  width: 670rpx;
+  height: 180rpx;
+  position: absolute;
+  left: 40rpx;
+  border-radius: 40rpx;
+  z-index: -1;
+  /* box-shadow: 0 2rpx 14rpx 3rpx rgb(231, 163, 95,.7); */
+}
+.banner-slide-item .slide-image{
+  width: 100%;
+  height: 180rpx;
+  border-radius: 40rpx;
+  overflow: hidden;
+}
+
+.index-btns{
+  padding: 0 40rpx;
+}
+.send-gift-btn{
+  width: 252rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.send-gift-icon{
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: -8rpx;
+  margin-left: 6rpx;
+}

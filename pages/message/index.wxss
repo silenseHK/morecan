@@ -1,0 +1,48 @@
+.bg-blue{
+  background: rgba(0, 118, 255, 1);
+}
+.bg-gold{
+  background: #DCAA81!important;
+}
+.bg-orange{
+  background: #ff5000;
+}
+.bg-yellow{
+  background: #ff9000;
+}
+.bg-green{
+  background: #77AF9C;
+}
+.bg-red{
+  background: #f94e3f;
+}
+.message-item{
+  border-radius: 15rpx;
+  margin: 0 3%;
+  margin-top: 3%;
+  padding: 20rpx
+}
+.message-icon{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.message-icon .iconfont{
+  font-size: 60rpx;
+  color: #fff;
+}
+.message-right{
+  margin-left: 15rpx;
+  flex:1;
+}
+.messgae-title{
+  color: #DCAA81;
+  margin-top: 10rpx;
+}
+.message-content{
+  color: #7E7E7E;
+  padding-top: 5rpx;
+  width: 500rpx;
+}

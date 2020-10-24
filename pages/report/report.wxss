@@ -1,0 +1,207 @@
+.swiper-box{
+  padding-top: 50rpx;
+  height: 80%;
+  /* padding-bottom: 24rpx; */
+}
+.swiper-item{
+  display:flex;
+  justify-content:center;
+}
+.slide-image{
+}
+.dots{  
+  display: flex;
+  justify-content: center;
+  /* margin-top: 24rpx; */
+}  
+/*未选中时的小圆点样式 */
+.dot{  
+  height: 16rpx;
+  width: 16rpx;
+  margin-right: 10rpx;
+  border-radius: 16rpx;
+  background-color: #9b9b9b;
+}  
+/*选中以后的小圆点样式  */
+.active{  
+  background-color: #000;
+} 
+
+.swiper-user-info{
+  width: 620rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 12rpx 16rpx 0px rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+}
+.siwier-item-image{
+  width: 620rpx;
+  /* height: 890rpx; */
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 12rpx 16rpx 0px rgba(0, 0, 0, 0.16);
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  margin-bottom: 24rpx;
+  z-index: 9999;
+}
+.info-container{
+  position: absolute;
+  top: 286rpx;
+  left: 60rpx;
+  font-weight: 700;
+}
+
+.username{
+  font-size: 46rpx;
+  font-weight: 700;
+  width: 350rpx;
+}
+.icon-list{
+  margin-top: 20rpx;
+}
+.for-suggestion{
+  margin-top: 50rpx;
+}
+.tag-words{
+  font-weight: 500;
+  font-size: 50rpx;
+  position: relative;
+  z-index: 9;
+  padding: 0 8rpx;
+}
+.tag-words .tag-words-background{
+  content: '';
+  position: absolute;
+  bottom: 12rpx;
+  height: 20rpx;
+  width: 100%;
+  left: 0;
+  background: #e5c39f;
+  z-index: -1;
+}
+
+.check-suggestions{
+  position: absolute;
+  width: 620rpx;
+  height: 85rpx;
+  background: #f1f3f8;
+  bottom: 24rpx;
+  border-radius: 0 0 20rpx 20rpx;
+}
+.bottom-buy{
+  margin-top: 30rpx;
+}
+.bottom-buy-btn{
+  width: 368rpx;
+  display: block;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 36rpx;
+  background-color: #E6C3A0;
+  color: #1E1E1E;
+  float: right;
+  text-align: center;
+  margin-right: 30rpx;
+  border-radius: 88rpx;
+  box-shadow: 0 8rpx 15rpx 0px rgba(0, 0, 0, 0.08);
+}
+
+.user-bg-gold{
+  height:320rpx;
+  background:#efc192;
+  width:100%;
+  position:absolute;
+  top:0
+}
+
+
+
+
+page{
+  background: #d2d4d7;
+}
+.item-container{
+  margin-top: 30rpx;
+  height: auto;
+  background: #fff;
+  padding: 25rpx;
+  padding-bottom: 110rpx;
+}
+.pain-point-content{
+  min-height: 290rpx;
+  margin-top: 0;
+  background: #e0efed;
+  padding: 0 60rpx;
+  padding-bottom: 30rpx;
+}
+.pain-point-content .dosage{
+  padding-top: 30rpx;
+}
+.pain-point-content .resolve-content{
+  line-height: 1.6;
+}
+.pain-point-desc{
+  padding: 30rpx 60rpx;
+}
+.pain-point-desc .pain-point-item{
+  color: #9c9c9c;
+  margin-top: 26rpx;
+  line-height: 1.6;
+}
+.common-title{
+  font-size: 40rpx;
+  font-weight: 500;
+}
+.desc-content{
+  font-weight: 500;
+  color: #535353;
+  font-size: 28rpx;
+}
+.tag-words{
+  position: relative;
+  z-index: 1;
+}
+.tag-words::after{
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  height: 20rpx;
+  width: 100%;
+  background: #e5c39f;
+  z-index: -1;
+}
+.list-item-num{
+  width: 50rpx;
+  text-align: left;
+}
+.list-item-content{
+  border-left: 1px solid #535353;
+  padding-left: 30rpx;
+  flex: 1;
+}
+
+.bottom-buy{
+  margin-top: 30rpx;
+  /* padding-bottom: 100rpx; */
+}
+.bottom-buy-btn{
+  width: 368rpx;
+  display: block;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 36rpx;
+  background-color: #E6C3A0;
+  color: #1E1E1E;
+  float: right;
+  text-align: center;
+  margin-right: 30rpx;
+  border-radius: 88rpx;
+  box-shadow: 0 8rpx 15rpx 0px rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,88 @@
+<view class="container">
+	<!-- 顶部选项卡 -->
+	<view class="swiper-tab dis-flex box-align-center">
+		<!-- <block wx:for="{{ gradeList }}" wx:key="this">
+      <view class="swiper-tab-item {{ dataType == item.value ? 'on' : ''}} flex-box" data-current="{{ item.value }}" bindtap="swichNav">{{ item.text }}({{ item.total }})</view>
+    </block> -->
+		<view class="selecGrade">
+			<picker mode="selector" class="select-grade" bindchange="bindPickerChange" value="{{index}}" range="{{gradeList}}" range-key="name">
+				<view class="picker grade_picker flex-y-center">
+					<!-- {{grade_id==0?"全部":gradeList[index].name}} -->
+					{{grade_id==0?"全部":gradeList[index].name}}
+					<text class="iconfont icon-xiajiantous"></text>
+				</view>
+				<view> </view>
+			</picker>
+		</view>
+		<!-- 搜索 -->
+		<view class="dis-flex search-input-box">
+			<view class="search-input">
+				<view class="dis-flex search-box">
+					<view class="left">
+						<icon color="rgba(180,180,180,1)" size="15" type="search"></icon>
+					</view>
+					<view class="right">
+						<input bindinput="getSearchContent" class="input" confirm-type="search" bindconfirm="search" placeholder="请输入手机号或微信昵称" placeholderStyle="color:#aba9a9" type="text"></input>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 团队总人数 -->
+	<view class="widget-people f-28 col-9">共{{total}}人</view>
+	<!-- 我的团队列表 -->
+	<scroll-view scroll-y="{{ true }}" bindscrolltolower="triggerDownLoad" style="height: {{swiperHeight}}px;">
+		<view class="widget-list b-f" wx:if="{{ data.length }}">
+			<view class="widget__detail dis-flex flex-dir-column" wx:for="{{ data }}" wx:key="this">
+				<view class="dis-flex flex-y-center flex-x-between flex-box">
+					<view class="detail__left dis-flex flex-y-center">
+						<view class="user-avatar">
+							<image src="{{ item.avatarUrl }}"></image>
+						</view>
+						<view class="user-info dis-flex flex-dir-column flex-x-center">
+							<view class="user-nickName dis-flex flex-dir-row flex-y-center">
+								<view class="f-30">{{ item.nickName }}</view>
+								<view class="grade-name f-22">{{item.grade.name}}</view>
+							</view>
+							<view class="user-time col-9 f-24">手机号:{{item.mobile}}</view>
+							<view class="user-time col-9 f-24">注册时间:{{item.create_time}}</view>
+						</view>
+					</view>
+					<view class="detail__right dis-flex flex-dir-column flex-x-center flex-y-center">
+						<view class="detail__money">
+							<text class="f-24">团队人数</text>
+							<!-- <text class="f-24">人</text> -->
+						</view>
+						<view class="detail__member f-30">
+							{{ item.member_num }}人
+						</view>
+					</view>
+				</view>
+				<view class="sale-info dis-flex flex-dir-row flex-x-around">
+          <view class="sale-info-item flex-dir-column flex-x-center">
+            <view class="f-28">{{item.day_buy}}</view>
+            <view class="sale-info-item-name f-24">日进货</view>
+          </view>
+          <view class="sale-info-item flex-dir-column flex-x-center">
+            <view class="f-28">{{item.month_buy}}</view>
+            <view class="sale-info-item-name f-24">月进货</view>
+          </view>
+          <view class="sale-info-item flex-dir-column flex-x-center">
+            <view class="f-28">{{item.last_month_buy}}</view>
+            <view class="sale-info-item-name f-24">上月进货</view>
+          </view>
+        </view>
+			</view>
+
+			<!-- 没有更多 -->
+			<view wx:if="{{ no_more }}" class="no-more f-30">亲, 没有更多了</view>
+		</view>
+		<!-- 没有记录 -->
+		<view class="yoshop-notcont" wx:if="{{ !data.length && !isLoading }}">
+			<view class="yoshop-notcont">
+				<text class="iconfont icon-wushuju"></text>
+				<text class="cont">暂无团队记录哦</text>
+			</view>
+		</view>
+	</scroll-view>
+</view>

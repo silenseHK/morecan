@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "提货发货记录",
+  "usingComponents": {
+    "zan-popup": "/components/popup/index"
+  }
+}

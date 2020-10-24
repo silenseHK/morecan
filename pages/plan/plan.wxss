@@ -1,0 +1,252 @@
+@import "../../wxParse/wxParse.wxss";
+
+page{
+  background: #dbdddf;
+}
+radio{
+  transform:scale(0.7);
+}
+.image {
+  width: 100%;
+  height: 100%;
+}
+.save-money text{
+  font-size: 40rpx;
+}
+.cart-edit-wrap {
+  padding: 3%;
+}
+
+.cart-tab-item-btn {
+  width: 300rpx;
+  display: block;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  background: #DCAA81;
+  text-align: center;
+  margin-right: 30rpx;
+  font-weight: 600;
+  border-radius: 90rpx;
+background-image: linear-gradient(90deg,#E3C2A2 0%,#DAA074 100%);
+
+}
+
+.cart-tab-item {
+  /* width: 65%; */
+}
+.cart-tab-item_1{
+  /* width: 35%; */
+  display: flex;
+  align-items: center;
+}
+.cart-tab-wrp {
+  height: 125rpx;
+  position: fixed;
+  bottom: 0rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  z-index: 10;
+  color: black;
+  justify-content: space-between;
+}
+
+.cart-tab-item {
+  overflow: hidden;
+  /* line-height: 100rpx; */
+}
+
+.cart-tab-item .cart-item-total-price {
+  /* float: left; */
+}
+
+.cart-item-total {
+  padding-left: 30rpx;
+}
+
+.cart-item-total-price {
+
+}
+
+.cart-item-total-price em {
+  display: block;
+}
+
+.cart-item-icon-wrp {
+  width: 110rpx;
+  height: 90rpx;
+  position: absolute;
+  top: -4rpx;
+}
+
+.cart-item-icon {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.dish-item {
+  width: 94%;
+  margin: 0 3%;
+  margin-bottom: 3%;
+  position: relative;
+  background: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.dish-item-radio {
+  padding: 20rpx 10rpx;
+  padding-right: 0;
+}
+
+.dish-item-wrp {
+  flex-direction: row;
+}
+
+.dish-item-pic {
+  width: 240rpx;
+  height: 100%;
+  margin-left: 26rpx;
+  position: relative;
+}
+
+.dish-item-pic image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.dish-item-info {
+  padding: 20rpx 0 16rpx;
+}
+
+.dish-item-info .goods-name {
+  /* height: 80rpx; */
+}
+.plan-desc{
+  padding-top: 8rpx;
+  padding-bottom: 6rpx;
+  border-bottom: 1rpx solid #cacaca;
+}
+.plan-desc-text{
+  height: 70rpx;
+  font-weight: 600;
+  color: #5d5d5d;
+  font-size: 20rpx;
+}
+.dish-item-sales {
+  color: #ccc;
+  font-size: 20rpx;
+  line-height: 50rpx;
+}
+
+.dish-item-money {
+  color: #2a2a2a;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.dish-item-money text{
+  font-size: 22rpx;
+}
+
+.flow-dete {
+  position: absolute;
+  bottom: 25rpx;
+  right: 30rpx;
+}
+
+.flow-dete .icon-lajixiang {
+  color: #777;
+  font-size: 34rpx;
+}
+
+.flow-btn-min {
+  background: #fff;
+  border: 1rpx solid #ccc;
+  height: 30px;
+  line-height: 30px;
+  font-size: 28rpx;
+  width: 200rpx;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  color: #777;
+  margin-top: 25rpx;
+}
+.selectNumber input{
+  width: 40px;
+}
+.selectNumber .default{
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+}
+/* 授权登录 */
+.pop-poster {
+  position: relative;
+  background: #fff;
+  padding: 42rpx;
+  border-radius: 10rpx;
+}
+
+.pop-poster .profile-btn button {
+  margin-bottom: 0;
+}
+
+.login-container{
+  width: 480rpx;
+}
+.wechatapp {
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.wechatapp .avatat-header {
+  width: 160rpx;
+  height: 160rpx;
+  border: 2px solid #fff;
+  margin: 0rpx auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 1px 0px 5px rgba(50, 50, 50, 0.3);
+}
+
+.auth-subtitle {
+  color: #888;
+  margin: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.login-btn {
+  width: 50%;
+  padding-left: 10rpx;
+}
+
+.login-btn button {
+  height: 76rpx;
+  line-height: 76rpx;
+  background: #E6C3A0;
+  color: #1E1E1E;
+  font-size: 30rpx;
+  border-radius: 999rpx;
+  text-align: center;
+}
+
+.no-login-btn {
+  width: 50%;
+  padding-right: 10rpx;
+}
+
+.no-login-btn button {
+  height: 76rpx;
+  line-height: 76rpx;
+  background: #F3F3F3;
+  color: #686868;
+  font-size: 30rpx;
+  border-radius: 999rpx;
+  text-align: center;
+}
