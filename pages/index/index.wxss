@@ -17,8 +17,9 @@ page {
   padding: 0 30rpx;
 }
 .navigationBar .top-fixed-container .logo{
-  font-size: 88rpx;
+  font-size: 320rpx;
   color: #fff;
+  line-height: .25;
 }
 
 .top-container{
@@ -26,6 +27,7 @@ page {
   height: 472rpx;
   position: relative;
   overflow: hidden;
+  /* z-index: -1; */
 }
 .top-title{
   position: absolute;
@@ -33,7 +35,7 @@ page {
   color: #fff;
   width: 92%;
   margin: 0 4%;
-  top: 0;
+  top: 10rpx;
 }
 .share-icon{
   font-size: 46rpx;

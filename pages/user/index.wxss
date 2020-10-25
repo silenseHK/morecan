@@ -247,11 +247,14 @@ page{
   margin: 0 3%;
 }
 .agent-top .logo{
-  font-size: 88rpx;
+  font-size: 320rpx;
   color: #fff;
+  line-height: .25;
+  position: absolute;
+  top: 12rpx;
 }
 .agent-top-title{
-  padding-top: 15rpx;
+  padding-top: 100rpx;
 }
 .agent-user{
   width: 100%;
@@ -306,7 +309,7 @@ page{
   margin-right: 15rpx;
 }
 .agent-user .agent-grade .agent-point .agent-point-info{
-  padding-bottom: 12rpx;
+  /* padding-bottom: 12rpx; */
 }
 .agent-user .agent-grade-level{
   background: #ffefe9;

@@ -8,7 +8,7 @@
   flex-direction: column;
   box-shadow: 0 2px 15px 0 rgba(144, 52, 52, 0.1);
 }
-.header {
+.cate-header {
   /* display: flex;
   position: fixed;
   top: 0; */
@@ -22,7 +22,7 @@
   white-space: nowrap;
 }
 
-.header .cs {
+.cate-header .cs {
   display: inline-block;
   text-align: center;
   min-width: 20%;
@@ -34,16 +34,16 @@
   background: #fff;
 }
 
-.header .cs text {
+.cate-header .cs text {
   display: block;
   height: 100%;
   color: #333;
   font-size: 28rpx;
 }
 
-.header .cs.active text {
-  color: #DCAA81;
-  border-bottom: 2rpx solid #DCAA81;
+.cate-header .cs.active text {
+  color: #ff6239;
+  border-bottom: 2rpx solid #ff6239;
 }
 /* 搜索框 */
 
@@ -61,7 +61,7 @@
 
 
 .diy-search .inner.round {
-  border-radius: 60rpx;
+  border-radius: 15rpx;
 }
 
 .diy-search .inner .search-input {
@@ -83,7 +83,8 @@
   margin: 0 3%;
   margin-top: 3%;
   padding: 20rpx;
-  /* box-shadow: 0 4px 12px 0 rgba(220, 170, 129, 0.2); */
+  box-shadow: 0 4px 12px 0 rgba(220, 170, 129, 0.2);
+  padding-left: 10rpx;
 }
 .message-icon{
   width: 100rpx;
@@ -109,15 +110,15 @@
   color: #7E7E7E;
   padding: 10rpx 0;
   line-height: 46rpx;
-  margin-top: 10rpx;
-  padding-left: 56rpx;
+  margin-top: 5rpx;
+  /* padding-left: 56rpx; */
 }
 .question-icon{
-  color: #fff;
-  background: #DCAA81;
+  color: #ff6239;
+  background: #ffefe9;
   height: 46rpx;
   width: 46rpx;
-  border-radius: 23rpx;
+  border-radius: 10rpx;
   text-align: center;
   line-height: 46rpx;
   font-size: 16px;
@@ -125,7 +126,7 @@
 .question-title{
   color: #333;
   font-weight: 500;
-  padding-left: 16rpx;
+  margin-left: 16rpx;
   flex: 1;
   padding-bottom: 10rpx;
 }

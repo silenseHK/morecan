@@ -14,7 +14,7 @@
       <!-- <view class="index-bg-icon" style="background-image: url('{{page.otherBackground}}');"></view> -->
     </view>
 </view>
-<view style="margin-top:{{ isIPX?'-380rpx':'-380rpx' }}" class="container b-f">
+<view style="margin-top:{{ isIPX?'-380rpx':'-380rpx' }}" class="container">
 
   <!-- DIY组件 -->
   <diy-component diyItems="{{ items }}"></diy-component>

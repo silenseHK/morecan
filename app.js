@@ -4,7 +4,7 @@
  */
 const tabBarLinks = [
   'pages/index/index',
-  'pages/category/index',
+  'pages/article/index',
   'pages/flow/index',
   'pages/user/index'
 ];
@@ -407,6 +407,7 @@ App({
    * 支持tabBar页面
    */
   navigationTo(url) {
+
     if (!url || url.length == 0) {
       return false;
     }
@@ -430,12 +431,12 @@ App({
   saveFormId(formId) {
     let _this = this;
     console.log('saveFormId');
-    if (formId === 'the formId is a mock one') {
-      return false;
-    }
-    _this._post_form('wxapp.formId/save', {
-      formId: formId
-    }, null, null, null, false);
+    // if (formId === 'the formId is a mock one') {
+    //   return false;
+    // }
+    // _this._post_form('wxapp.formId/save', {
+    //   formId: formId
+    // }, null, null, null, false);
   },
 
   /**

@@ -217,13 +217,14 @@
   margin: 0 20rpx 20rpx 0;
   border-radius: 8rpx;
   color: #888;
-  border: 1px solid #e6e6e6;
+  background: #f5f5f5;
+  /* border: 1px solid #e6e6e6; */
 }
 
 .goods-attr .group-item .spec-item.cur {
-  background: #DCAA81;
-  border: 1rpx solid #DCAA81;
-  color: #fff;
+  background: #ffefe9;
+  /* border: 1rpx solid #DCAA81; */
+  color: #ff6239;
 }
 
 .goods-attr .group-item .spec-item.cur:after {
@@ -582,13 +583,17 @@
 
 /* 推荐套餐 */
 .plan-item{
-  width: 23%;
-  border: 1rpx solid #DCAA81;
   border-radius: 10rpx;
   position: relative;
   display: flex;
+  flex: 1;
+  margin-left: 15rpx;
+  background: #f5f5f5;
 }
-.plan-item-active::after{
+.plan-item:nth-child(1){
+  margin-left: 0;
+}
+/* .plan-item-active::after{
   position: absolute;
   content: '';
   bottom: -26rpx;
@@ -599,15 +604,15 @@
   border-width: 18rpx;
   border-style: solid;
   border-color: transparent #f7f7f7 transparent transparent;
-  transform: rotate(90deg); /*顺时针旋转90°*/
-}
+  transform: rotate(90deg);
+} */
 .plan-item-content{
   color: #000;
   padding: 10rpx;
 }
 .plan-item-active{
   background: rgb(248, 234, 222,.6);
-  border: 1rpx solid #DCAA81;
+  /* border: 1rpx solid #DCAA81; */
 }
 .plan-item-active .plan-item-content{
 

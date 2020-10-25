@@ -134,12 +134,12 @@
             </view>
           </view>
           <!-- 套餐规格 -->
-          <view wx:if="{{goods_id == 35}}" class="goods-attr">
+          <view wx:if="{{goods_id == 1}}" class="goods-attr">
             <!-- 滚动容器 -->
             <scroll-view class="goods-attr--scroll" scroll-y="{{ true }}">
               <view class="group-item">
                 <view class="tips-text">推荐套餐</view>
-                <view class="spec-item {{ index==planItemIndex ? 'cur' : '' }}" wx:for="{{ plan }}" wx:key="this" data-index="{{ index }}" wx:if="{{ index<plan.length-1}}" catchtap="selectPlanItem">
+                <view class="spec-item {{ index==planItemIndex ? 'cur' : '' }}" wx:for="{{ plan }}" wx:key="this" data-index="{{ index }}" catchtap="selectPlanItem">
                   {{ item.title }}
                 </view>
               </view>
@@ -235,14 +235,14 @@
       <view class="goods-comment-box b-f">
         <view class="cont-box goods-comment-box b-t b-f">
           <view class="dis-flex flex-x-between">
-            <view class="plan-item col-m {{index == planItemIndex?'plan-item-active':''}}" wx:for="{{plan}}" wx:key="index" wx:if="{{index<plan.length-1}}" data-index="{{index}}" catchtap="selectPlanItem">
+            <view class="plan-item col-m {{index == planItemIndex?'plan-item-active':''}}" wx:for="{{plan}}" wx:key="index" data-index="{{index}}" catchtap="selectPlanItem">
               <view class="plan-item-content">
-                <view class="f-28">{{item.title}}</view>
-                <view class="f-26 col-m m-top10">{{item.num}}盒</view>
+                <view class="f-32 col-m m-top10">{{item.num}}箱 <text class="f-24 col-3">{{item.title}}</text></view>
+								<text class="f-24 m-top10">{{item.description}}</text>
               </view>
             </view>
           </view>
-          <view class="plan-item-desc" wx:if="{{planItemIndex !== plan.length}}">
+          <!-- <view class="plan-item-desc" wx:if="{{planItemIndex !== plan.length}}">
           <view class="plan-item-desc-row dis-flex">
             <view class="f-26 f-w plan-item-desc-title">推荐理由</view>
             <view class="plan-desc-content"><text class="f-26">{{plan[planItemIndex].description}}</text></view>
@@ -266,7 +266,7 @@
               
             </view>
            </view>
-          </view>
+          </view> -->
         </view>
       </view>
     </view>

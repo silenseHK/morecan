@@ -10,7 +10,7 @@
 </view>
 
 <!-- 分类tab -->
-<view class="header">
+<view class="cate-header">
   <scroll-view scroll-x scroll-left style="height: 100%;">
     <view class="cs {{ cate_id ==  0 ? 'active' : '' }}" catchtap="onSwitchTab" data-id="0">
       <text>全部</text>
@@ -31,8 +31,8 @@
         <view class="message-item b-f dis-flex">
           <view class="message-right">
               <view class="messgae-title f-30 dis-flex flex-y-center">
-              <view class="question-icon f-32">Q</view>
-              <view class="question-title b-b">{{item.title}}</view>
+                <view class="question-icon f-32">Q</view>
+                <view class="question-title b-b">{{item.title}}</view>
               </view>
               <view class="message-content f-26">{{item.desc}}</view>
           </view>

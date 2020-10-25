@@ -186,7 +186,7 @@ Page({
 
       if(_this.data.goods_id == 1){
          //获取套餐信息
-        // _this.getPlanData();
+        _this.getPlanData();
       }
 
       // 执行倒计时
@@ -474,17 +474,17 @@ Page({
         num: _this.data.goods_num
       }, (result) => {
         // 设置了推荐套餐
-        // if(_this.data.goods_id == 1){
-        //   let planItemIndex = _this.data.plan.length;
-        //   _this.data.plan.forEach((item,index)=>{
-        //     if(_this.data.goods_num == parseInt(item.num)){
-        //       planItemIndex = index
-        //     }
-        //   })
-        //   _this.setData({
-        //     planItemIndex: planItemIndex
-        //   })
-        // }
+        if(_this.data.goods_id == 1){
+          let planItemIndex = _this.data.plan.length;
+          _this.data.plan.forEach((item,index)=>{
+            if(_this.data.goods_num == parseInt(item.num)){
+              planItemIndex = index
+            }
+          })
+          _this.setData({
+            planItemIndex: planItemIndex
+          })
+        }
           _this.setData({
             goods_price: result.data.price,
             // goods_num: _this.data.goods_num
@@ -667,7 +667,7 @@ Page({
   onClickShare(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId);
     _this.setData({
       'share.show': true
     });
@@ -730,7 +730,7 @@ Page({
   onSavePoster(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId);
     wx.showLoading({
       title: '加载中',
     });

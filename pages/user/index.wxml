@@ -192,19 +192,19 @@
     </view> -->
     <view class="agent-top" style="position:absolute;top:{{isIPX?'40px':'22px'}};z-index:9;">
          <text class="iconfont icon-logo-white-c logo"></text>
-         <view class="agent-top-title col-f dis-flex flex-y-center flex-x-between">
+         <view class="agent-top-title col-f dis-flex flex-y-end flex-x-between">
             <view class="f-36 f-w">代理中心</view>
             <!-- 等级信息 -->
             <view class="agent-grade">
               <view class="dis-flex">
                 <!-- <view class="agent-grade-name f-32">{{agent.grade.name}}</view> -->
                 <view class="agent-point flex-box">
-                  <view class="agent-point-info dis-flex flex-y-center flex-x-between f-24">
-                    <text>{{agent.grade.next.rate}}</text>
+                  <view class="agent-point-info dis-flex flex-y-end flex-x-end f-24">
+                    <!-- <text>{{agent.grade.next.rate}}</text> -->
                     <!-- <view>还差{{agent.grade.next.cha}}分升级{{agent.grade.next.next_grade}}</view> -->
-                    <view>升级至{{agent.grade.next.next_grade}}</view>
+                    <!-- <view>下一个等级升级至{{agent.grade.next.next_grade}}</view> -->
                   </view>
-                  <progress percent="{{grade_process}}" color="#ff6239" stroke-width="4" border-radius="4"/>
+                  <!-- <progress percent="{{grade_process}}" color="#ff6239" stroke-width="4" border-radius="4"/> -->
                 </view>
               </view>
             </view>
@@ -212,7 +212,7 @@
          
     </view>
 		<view class="agent-user-bg">
-			<view class="agent-bg-icon" style="background-image: url('{{agent.setting.index}}');">
+			<view class="agent-bg-icon">
 			</view>
 		</view>
 		<view class="agent-user-info">

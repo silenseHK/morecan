@@ -505,11 +505,22 @@ Page({
         goods_sku_id: _this.data.goods_sku_id,
         num: _this.data.goods_num
       }, (result) => {
-          
+          // 设置了推荐套餐
+        if(_this.data.goods_id == 1){
+          let planItemIndex = _this.data.plan.length;
+          _this.data.plan.forEach((item,index)=>{
+            if(_this.data.goods_num == parseInt(item.num)){
+              planItemIndex = index
+            }
+          })
+          _this.setData({
+            planItemIndex: planItemIndex
+          })
+        }
           _this.setData({
             goods_price: result.data.price,
             // goods_num: _this.data.goods_num
-            planItemIndex: planItemIndex
+            // planItemIndex: planItemIndex
           })
 
           //算差价

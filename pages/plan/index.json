@@ -1,7 +1,5 @@
 {
-  "navigationBarTitleText": "摩卡路",
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
   "usingComponents": {
     "zan-actionsheet": "/components/actionsheet/index",
     "zan-popup": "/components/popup/index",
