@@ -54,8 +54,11 @@
 
 .detail-header {
   position: relative;
-  width: 100%;
+  width: 94%;
   height: 140rpx;
+  margin: 3%;
+  border-radius: 15rpx;
+  overflow: hidden;
 }
 
 .detail-header .header-backdrop {
@@ -65,8 +68,9 @@
   z-index: -1;
   height: 140rpx;
   width: 100%;
-  background-color: #E3C1A1;
-  background-image: linear-gradient(270deg,#E3C1A1 0%,#D9A074 100%);
+  /* background-color: #E3C1A1; */
+  /* background-image: linear-gradient(270deg,#E3C1A1 0%,#D9A074 100%); */
+  background-image: linear-gradient(95deg,#FF7739 0%,#FC8B56 74%);
 }
 
 .detail-header .header-backdrop image {

@@ -4,11 +4,12 @@
     <custom-li wx:for="{{list}}" wx:for-item="item" wx:key="this">
       <view class="address-header m-top18">
         <view class="flow-header-left pl-12">
-          <view class="flow-checkout-admin">{{item.bank.bank_name}}
-            <text>{{item.card_number}}</text>
+          <view class="flow-checkout-admin">
+          {{item.bank.bank_name}}
           </view>
           <view class="flow-checkout-address">
-            {{item.bank_address}}
+           <text>{{item.card_number}}</text>
+            <!-- {{item.bank_address}} -->
           </view>
         </view>
       </view>
@@ -16,7 +17,7 @@
         <view class="list address-left">
           <radio-group bindchange="setDefault" class="radio-group">
             <label class="radio">
-              <radio checked="{{item.card_id == default_id}}" color="#f42424" value="{{item.card_id}}"></radio>
+              <radio checked="{{item.card_id == default_id}}" color="#ff6239" value="{{item.card_id}}"></radio>
               <text class="cont" wx:if="{{item.card_id == default_id}}">默认</text>
               <text class="cont" wx:else>选择</text>
             </label>

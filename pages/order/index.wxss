@@ -195,10 +195,10 @@
 }
 .deliver-desc{
   margin-left: 10rpx;
-  background: #ff6239;
+  background-image: linear-gradient(95deg,#FF7739 0%,#FC8B56 74%);
   color: #fff;
   padding: 2rpx 8rpx;
-  border-radius: 22rpx 22rpx 0 22rpx;
+  border-radius: 22rpx 22rpx 22rpx 0;
   font-weight: normal;
 }
 .trans-desc{
