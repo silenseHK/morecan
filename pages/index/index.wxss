@@ -27,7 +27,7 @@ page {
   height: 472rpx;
   position: relative;
   overflow: hidden;
-  /* z-index: -1; */
+  z-index: -1;
 }
 .top-title{
   position: absolute;
@@ -35,7 +35,7 @@ page {
   color: #fff;
   width: 92%;
   margin: 0 4%;
-  top: 10rpx;
+  margin-top: 10rpx;
 }
 .share-icon{
   font-size: 46rpx;

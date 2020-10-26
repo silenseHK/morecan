@@ -4,12 +4,12 @@
       <text class="iconfont icon-logo-white-c logo"></text>
   </view>
 </view>
-
-<view class="top-container">
-    <view class="dis-flex top-title flex-x-between flex-y-center">
+<view class="dis-flex top-title flex-x-between flex-y-center">
       <view class="f-32 ">{{page.params.title}}</view>
       <view bindtap="onClickShareItem" class="f-40 f-w iconfont icon-fenxiang1 share-icon"></view>
     </view>
+<view class="top-container">
+    
     <view class="index-top-bg">
       <!-- <view class="index-bg-icon" style="background-image: url('{{page.otherBackground}}');"></view> -->
     </view>
