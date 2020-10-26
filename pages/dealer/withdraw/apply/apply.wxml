@@ -1,9 +1,9 @@
 <view class="container b-f">
 
   <!-- 头部背景图 -->
-  <view class="dealer-bg">
+  <!-- <view class="dealer-bg">
     <image mode="widthFix" src="{{ background }}"></image>
-  </view>
+  </view> -->
 
   <view class="widget-body b-f dis-flex flex-dir-column flex-y-center">
     <form bindsubmit="formSubmit" report-submit="true">
