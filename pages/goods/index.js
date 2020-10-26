@@ -180,7 +180,8 @@ Page({
       _this.setData(data);
 
       //如果是代理补库存，初始化sku
-      if(_this.data.spec_sku_id){
+      console.log(_this.data.spec_sku_id);
+      if(_this.data.spec_sku_id && _this.data.spec_sku_id != 0){
         _this._initSupplySpecData();
       }
 
