@@ -18,7 +18,8 @@ Page({
     exist_bank: false,  //是否存在银行卡
     bank_id:'',
     bank_info: '',
-    choose_id: ''
+    choose_id: '',
+    servieMoney: 0
   },
 
   /**
@@ -51,12 +52,12 @@ Page({
         title: data.words.withdraw_apply.title.value
       });
       //  默认提现方式
-      if(_this.data.choose_id == ''){
+      // if(_this.data.choose_id == ''){
         data['payment'] = data.settlement.pay_type[0];
-      }else{
+      // }else{
         //选择银行卡默认为银行卡
-        data['payment'] = data.settlement.pay_type[1];
-      }
+        // data['payment'] = data.settlement.pay_type[1];
+      // }
       _this.setData(data);
     });
   },
@@ -67,7 +68,7 @@ Page({
     let _this = this;
     App._get('user.bank_card/lists', {}, function(result) {
       let data = result.data;
-      if(data.list.length > 0){
+      // if(data.list.length > 0){
         //是否存在默认
         if(data.default_id ){
           data.list.forEach(function(item,index){
@@ -82,14 +83,26 @@ Page({
         }else{
           //不存在默认且有银行卡
           _this.setData({
-            exist_bank: true
+            bank_id: '',
+            exist_bank: false
           })
         }
 
-      }
+      // }
 
 
     });
+  },
+  /**
+   * 计算手续费
+   */
+  calculateServiceMoney(e){
+    let drawMoney = e.detail.value,
+        servieChange = this.data.withdraw_setting.service_charge;
+    let servieMoney = drawMoney*servieChange/100;
+    this.setData({
+      servieMoney: servieMoney.toFixed(2)
+    })
   },
   /**
    * 提交申请 

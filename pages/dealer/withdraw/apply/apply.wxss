@@ -125,3 +125,6 @@ page {
 .bank-name,.bank-number{
   padding: 10rpx;
 }
+.money-input{
+  text-align: right;
+}

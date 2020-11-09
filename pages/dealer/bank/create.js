@@ -15,7 +15,7 @@ Page({
 
     bankCardList:'',
     bank_id: '',
-    defaultBank: 0,
+    defaultBank: 1,
     index: ''
   },
 

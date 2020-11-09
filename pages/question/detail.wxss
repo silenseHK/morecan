@@ -39,17 +39,18 @@
   font-size: 26rpx;
 }
 .question-icon{
-  color: #fff;
-  background: #DCAA81;
+  color: #ff6239;
+  background: #ffefe9;
   height: 46rpx;
   width: 46rpx;
-  border-radius: 23rpx;
+  border-radius: 10rpx;
   text-align: center;
   line-height: 46rpx;
   font-size: 16px;
 }
 .question-title{
   padding-bottom: 10rpx;
+  color: #333;
 }
 
 .question-info{

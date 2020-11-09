@@ -78,7 +78,7 @@
             <view class="order-btn dis-flex flex-y-center t-r">
               <view class="order-left flex-x-end">
                 <view class="text">
-                  <text>返利：</text>
+                  <text>教育津贴:</text>
                   <text class="col-m">￥{{item.income}}</text>
                 </view>
               </view>
